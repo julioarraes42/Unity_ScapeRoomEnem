@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float velocity = 10.0f;
     public float rotation = 90.0f;
     public Transform camera;
+    public AudioSource passosAudio;
 
     void Start()
     {
@@ -24,8 +25,25 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(dir * Time.deltaTime);
 
-        // Rotate the camera based on mouse movement
+
         transform.Rotate(new Vector3(0, mouseX * rotation * Time.deltaTime, 0));
 
+        bool movimento = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
+
+        if (movimento)
+        {
+            if (!passosAudio.isPlaying)
+            {
+                passosAudio.Play();
+
+            }
+        }
+        else
+        {
+            if (passosAudio.isPlaying)
+            {
+                passosAudio.Stop();
+            }
+        }
     }
 }
