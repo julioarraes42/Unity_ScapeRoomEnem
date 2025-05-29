@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotation = 90.0f;
     public Transform camera;
     public AudioSource passosAudio;
+    public Light lanterna;
 
     void Start()
     {
@@ -23,6 +25,14 @@ public class PlayerMovement : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y");
         bool estaCorrendo;
         bool movimento = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            lanterna.enabled = true;
+        }else
+        {
+            lanterna.enabled = false;
+        }
 
 
         if (Input.GetKey(KeyCode.LeftShift))
