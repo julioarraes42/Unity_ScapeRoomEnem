@@ -11,10 +11,13 @@ public class PlayerMovement : MonoBehaviour
     public Transform camera;
     public AudioSource passosAudio;
     public Light lanterna;
+    public bool lanternaLigada = false;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        lanterna.enabled = false;
     }
 
     void Update()
@@ -26,12 +29,10 @@ public class PlayerMovement : MonoBehaviour
         bool estaCorrendo;
         bool movimento = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            lanterna.enabled = true;
-        }else
-        {
-            lanterna.enabled = false;
+            lanternaLigada = !lanternaLigada;
+            lanterna.enabled = lanternaLigada;
         }
 
 
