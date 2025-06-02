@@ -5,6 +5,17 @@ public class ApagarLuzesLED : MonoBehaviour
 {
     public Material led;
     public List<Light> luzes;
+
+    private void Start()
+    {
+        foreach (Light light in luzes)
+        {
+            light.enabled = false;
+        }
+
+        led.DisableKeyword("_EMISSION");
+        led.SetColor("_EmissionColor", Color.black);
+    }
     public void Interrupitor(){
        bool algumaEstavaLigada = false;
 
@@ -21,7 +32,7 @@ public class ApagarLuzesLED : MonoBehaviour
             }
         }
 
-        // Se alguma estava ligada, desliga a emissão
+
         if (algumaEstavaLigada)
         {
             led.DisableKeyword("_EMISSION");
@@ -30,7 +41,9 @@ public class ApagarLuzesLED : MonoBehaviour
         else
         {
             led.EnableKeyword("_EMISSION");
-            led.SetColor("_EmissionColor", Color.white); // Ou outra cor que simule o LED ligado
+            led.SetColor("_EmissionColor", Color.white);
         }
+
+        transform.Rotate(0f, 180f, 0f);
     }
 }
