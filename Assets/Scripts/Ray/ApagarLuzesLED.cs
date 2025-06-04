@@ -5,6 +5,7 @@ public class ApagarLuzesLED : MonoBehaviour
 {
     public Material led;
     public List<Light> luzes;
+    public AudioSource som;
 
     private void Start()
     {
@@ -45,5 +46,6 @@ public class ApagarLuzesLED : MonoBehaviour
         }
 
         transform.Rotate(0f, 180f, 0f);
+        som.Play();
     }
 }

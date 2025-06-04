@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotation = 90.0f;
     public Transform camera;
     public AudioSource passosAudio;
+    public AudioSource lanternaAudio;
     public Light lanterna;
     public bool lanternaLigada = false;
 
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         {
             lanternaLigada = !lanternaLigada;
             lanterna.enabled = lanternaLigada;
+            lanternaAudio.Play();
         }
 
 
