@@ -6,6 +6,7 @@ public class ApagarLuzesLED : MonoBehaviour
     public Material led;
     public List<Light> luzes;
     public AudioSource som;
+    public Light destaque;
 
     private void Start()
     {
@@ -16,9 +17,11 @@ public class ApagarLuzesLED : MonoBehaviour
 
         led.DisableKeyword("_EMISSION");
         led.SetColor("_EmissionColor", Color.black);
+
+        destaque.enabled = true;
     }
     public void Interrupitor(){
-       bool algumaEstavaLigada = false;
+        bool algumaEstavaLigada = false;
 
         foreach (Light light in luzes)
         {
@@ -33,6 +36,10 @@ public class ApagarLuzesLED : MonoBehaviour
             }
         }
 
+        if (destaque.enabled)
+        {
+            destaque.enabled = false;
+        }
 
         if (algumaEstavaLigada)
         {
