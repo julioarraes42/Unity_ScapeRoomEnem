@@ -9,6 +9,7 @@ public class PlayerComandos : MonoBehaviour
     public Inventario inventario;
     private CharacterController controler;
     float rotacaoX = 0f;
+    private bool inventarioAberto = false;
 
     void Start()
     {
@@ -18,22 +19,24 @@ public class PlayerComandos : MonoBehaviour
     }
     void Update()
     {
+        if (!inventarioAberto)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * sensibilidade * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * sensibilidade * Time.deltaTime;
 
-        float mouseX = Input.GetAxis("Mouse X") * sensibilidade * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensibilidade * Time.deltaTime;
+            rotacaoX -= mouseY;
+            rotacaoX = Mathf.Clamp(rotacaoX, -90f, 90f); // Limita a rotação vertical
+            mainCamera.localRotation = Quaternion.Euler(rotacaoX, 0f, 0f);
 
-        rotacaoX -= mouseY;
-        rotacaoX = Mathf.Clamp(rotacaoX, -90f, 90f); // Limita a rotação vertical
-        mainCamera.localRotation = Quaternion.Euler(rotacaoX, 0f, 0f);
+            transform.Rotate(Vector3.up * mouseX); // Rotação horizontal do jogador
 
-        transform.Rotate(Vector3.up * mouseX); // Rotação horizontal do jogador
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+            Vector3 movimento = transform.right * x + transform.forward * z; // Movimento baseado na direção do jogador
 
-        Vector3 movimento = transform.right * x + transform.forward * z; // Movimento baseado na direção do jogador
-
-        controler.Move(movimento * velocidade * Time.deltaTime); // Move o jogador com base no input e velocidade
+            controler.Move(movimento * velocidade * Time.deltaTime); // Move o jogador com base no input e velocidade
+        }
 
 
         if (Input.GetMouseButtonDown(0))
@@ -51,6 +54,22 @@ public class PlayerComandos : MonoBehaviour
             }
 
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (inventarioAberto)
+            {
+                inventario.AbrirInventario();
+                Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
+                inventarioAberto = false; // Marca o inventário como fechado
+            }
+            else
+            {
+                inventario.AbrirInventario();
+                Cursor.lockState = CursorLockMode.None; // Libera o cursor
+                inventarioAberto = true; // Marca o inventário como aberto
+            }
         }
 
     }
