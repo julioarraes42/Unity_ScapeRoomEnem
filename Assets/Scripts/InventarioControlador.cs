@@ -11,7 +11,6 @@ public class InventarioControlador : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     public void AdicionarItemAoInventario()
     {
         {

@@ -34,6 +34,8 @@ public class Inventario : MonoBehaviour
             Debug.Log($"Item {item.nome} adicionado ao inventário.");
             iconesSlots[items.Count - 1].sprite = item.icone; // Atualiza o ícone do slot correspondente no inventário
             iconesSlots[items.Count - 1].color = Color.white; // Define a cor do ícone para visível
+            iconesSlots[items.Count - 1].GetComponent<Slot>().item = item; // Associa o item ao slot
+            iconesSlots[items.Count - 1].GetComponent<Slot>().nome = item.nome; // Define o nome do item no slot
         }
         else
         {
