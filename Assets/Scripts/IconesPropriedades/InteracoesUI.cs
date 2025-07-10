@@ -7,6 +7,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private RectTransform rectTransform;
     private Vector2 posicaoInicial;
     public string itemSegurado;
+    public GameObject player;
 
     public Canvas canvas;
 
@@ -45,7 +46,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 if (hit.collider.GetComponent<SlotCelula>().nome == itemSegurado && !hit.collider.GetComponent<MeshRenderer>().enabled)
                 {
                     hit.collider.GetComponent<MeshRenderer>().enabled = true; // Ativa o renderizador do slot de célula
-                    Destroy(gameObject); // Destroi o objeto arrastado após soltá-lo no slot de célula
+                    player.GetComponent<Inventario>().RemoverItem(itemSegurado); // Remove o item do inventário do jogador
                 }
             }
             else
@@ -55,6 +56,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
 
         rectTransform.anchoredPosition = posicaoInicial; // Retorna o objeto para a posição inicial após o arrasto
+        player.GetComponent<Inventario>().AtualizarInventario(); // Atualiza o inventário do jogador após o arrasto
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

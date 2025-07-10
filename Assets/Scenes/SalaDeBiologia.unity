@@ -446,6 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &132745783
 MonoBehaviour:
@@ -716,6 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &202107377
 MonoBehaviour:
@@ -1063,6 +1065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &281981357
 MonoBehaviour:
@@ -1168,6 +1171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &290659792
 MonoBehaviour:
@@ -1858,6 +1862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &544369368
 MonoBehaviour:
@@ -2087,6 +2092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &593053095
 MonoBehaviour:
@@ -2192,6 +2198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &643180886
 MonoBehaviour:
@@ -2793,6 +2800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &932205792
 MonoBehaviour:
@@ -2937,6 +2945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &989735106
 MonoBehaviour:
@@ -3208,6 +3217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1045554921
 MonoBehaviour:
@@ -3313,6 +3323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1102810275
 MonoBehaviour:
@@ -3457,6 +3468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1180380988
 MonoBehaviour:
@@ -3562,6 +3574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1199073908
 MonoBehaviour:
@@ -4198,6 +4211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1341449994
 MonoBehaviour:
@@ -4531,6 +4545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1480959811
 MonoBehaviour:
@@ -5168,6 +5183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1765207573
 MonoBehaviour:
@@ -5273,6 +5289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1769622365
 MonoBehaviour:
@@ -5378,6 +5395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1841702444
 MonoBehaviour:
@@ -5483,6 +5501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1941385818
 MonoBehaviour:
@@ -5588,6 +5607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1962258715
 MonoBehaviour:
@@ -5693,6 +5713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &1984362169
 MonoBehaviour:
@@ -5798,6 +5819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &2026774057
 MonoBehaviour:
@@ -6441,6 +6463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &2121394553
 MonoBehaviour:
@@ -6546,6 +6569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSegurado: 
+  player: {fileID: 269738790}
   canvas: {fileID: 309723324}
 --- !u!114 &2146578931
 MonoBehaviour:

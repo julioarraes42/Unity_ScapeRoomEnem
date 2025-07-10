@@ -20,6 +20,8 @@ public class Item : MonoBehaviour
 
     public void destruir()
     {
-                Destroy(gameObject); // Destroi o objeto do jogo
+        Destroy(gameObject); // Destroi o objeto do jogo
     }
+
+    // Metodo equal para comparar dois objetos Item
 }

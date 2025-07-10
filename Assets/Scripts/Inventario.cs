@@ -42,4 +42,41 @@ public class Inventario : MonoBehaviour
             Debug.LogWarning("Item inválido ou já está no inventário.");
         }
     }
+
+    public void RemoverItem(string nome)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].nome == nome)
+            {
+                Debug.Log($"Removendo item {items[i].nome} do inventário.");
+                items.RemoveAt(i); // Remove o item da lista
+                AtualizarInventario(); // Atualiza o inventário após a remoção
+                return;
+            }
+        }
+    }
+
+    public void AtualizarInventario()
+    {
+        for (int i = 0; i < iconesSlots.Length; i++)
+        {
+            if (i < items.Count)
+            {
+                Debug.Log($"Atualizando slot {i} com o item {items[i].nome}.");
+                iconesSlots[i].sprite = items[i].icone; // Atualiza o ícone do slot com o ícone do item
+                iconesSlots[i].color = Color.white; // Define a cor do ícone para visível
+                iconesSlots[i].GetComponent<Slot>().item = items[i]; // Associa o item ao slot
+                iconesSlots[i].GetComponent<Slot>().nome = items[i].nome; // Define o nome do item no slot
+            }
+            else
+            {
+                Debug.Log($"Limpando slot {i}, pois não há item associado.");
+                iconesSlots[i].sprite = null; // Limpa o ícone do slot se não houver item
+                iconesSlots[i].color = new Color(0, 0, 0, 0); // Torna o ícone invisível
+                iconesSlots[i].GetComponent<Slot>().item = null; // Remove a associação do item ao slot
+                iconesSlots[i].GetComponent<Slot>().nome = ""; // Limpa o nome do item no slot
+            }
+        }
+    }
 }
