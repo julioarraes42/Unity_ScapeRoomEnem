@@ -39,11 +39,13 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             if (hit.collider.CompareTag("Drop"))
             {
                 Debug.Log("Deu Certo");
-            }else if (hit.collider.CompareTag("SlotCelula"))
+            }
+            else if (hit.collider.CompareTag("SlotCelula"))
             {
-                if (hit.collider.GetComponent<SlotCelula>().nome == itemSegurado)
+                if (hit.collider.GetComponent<SlotCelula>().nome == itemSegurado && !hit.collider.GetComponent<MeshRenderer>().enabled)
                 {
-                    Debug.Log("Deu SUPER Certo");
+                    hit.collider.GetComponent<MeshRenderer>().enabled = true; // Ativa o renderizador do slot de célula
+                    Destroy(gameObject); // Destroi o objeto arrastado após soltá-lo no slot de célula
                 }
             }
             else
