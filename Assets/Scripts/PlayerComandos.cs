@@ -11,6 +11,11 @@ public class PlayerComandos : MonoBehaviour
     float rotacaoX = 0f;
     private bool inventarioAberto = false;
 
+    // Referência a GameObjects que contém a UI
+    public GameObject comandoPegarUI;
+    public GameObject mira;
+    public GameObject comandoInventarioUI;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
@@ -19,6 +24,9 @@ public class PlayerComandos : MonoBehaviour
     }
     void Update()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
         if (!inventarioAberto)
         {
             float mouseX = Input.GetAxis("Mouse X") * sensibilidade * Time.deltaTime;
@@ -38,12 +46,21 @@ public class PlayerComandos : MonoBehaviour
             controler.Move(movimento * velocidade * Time.deltaTime); // Move o jogador com base no input e velocidade
         }
 
-
-        if (Input.GetMouseButtonDown(0))
+        if (Physics.Raycast(ray, out hit))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            if (hit.collider.CompareTag("Item") && !comandoPegarUI.activeSelf && !inventarioAberto)
+            {
+                comandoPegarUI.SetActive(true); // Ativa a UI de comando de pegar item
 
+            }else if (!hit.collider.CompareTag("Item") && comandoPegarUI.activeSelf)
+            {
+                comandoPegarUI.SetActive(false); // Desativa a UI de comando de pegar item se não estiver sobre um item
+
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && !inventarioAberto)
+        {
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.CompareTag("Item"))
@@ -56,19 +73,25 @@ public class PlayerComandos : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (inventarioAberto)
             {
+                // Se o inventário já estiver aberto, fecha-o
                 inventario.AbrirInventario();
                 Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
                 inventarioAberto = false; // Marca o inventário como fechado
+                mira.SetActive(true); // Ativa a mira quando o inventário é fechado
+                comandoInventarioUI.SetActive(true);
             }
             else
             {
+                // Se o inventário não estiver aberto, abre-o
                 inventario.AbrirInventario();
                 Cursor.lockState = CursorLockMode.None; // Libera o cursor
                 inventarioAberto = true; // Marca o inventário como aberto
+                mira.SetActive(false);
+                comandoInventarioUI.SetActive(false);
             }
         }
 
