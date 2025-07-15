@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerComandos : MonoBehaviour
 {
@@ -9,12 +11,15 @@ public class PlayerComandos : MonoBehaviour
     public Inventario inventario;
     private CharacterController controler;
     float rotacaoX = 0f;
-    private bool inventarioAberto = false;
+    public bool inventarioAberto = false;
+    public bool menuAberto = false; // Variável para controlar o estado do menu
 
     // Referência a GameObjects que contém a UI
     public GameObject comandoPegarUI;
     public GameObject mira;
     public GameObject comandoInventarioUI;
+    public GameObject painelTextoNome;
+    public GameObject textoNome;
 
     void Start()
     {
@@ -27,7 +32,7 @@ public class PlayerComandos : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (!inventarioAberto)
+        if (!(inventarioAberto || menuAberto))
         {
             float mouseX = Input.GetAxis("Mouse X") * sensibilidade * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * sensibilidade * Time.deltaTime;
@@ -51,10 +56,14 @@ public class PlayerComandos : MonoBehaviour
             if (hit.collider.CompareTag("Item") && !comandoPegarUI.activeSelf && !inventarioAberto)
             {
                 comandoPegarUI.SetActive(true); // Ativa a UI de comando de pegar item
+                textoNome.GetComponent<TextMeshProUGUI>().text = hit.collider.GetComponent<Item>().nome; // Atualiza o texto com o nome do item
+                painelTextoNome.SetActive(true); // Ativa o painel de texto do nome do item
 
-            }else if (!hit.collider.CompareTag("Item") && comandoPegarUI.activeSelf)
+            }
+            else if (!hit.collider.CompareTag("Item") && comandoPegarUI.activeSelf)
             {
                 comandoPegarUI.SetActive(false); // Desativa a UI de comando de pegar item se não estiver sobre um item
+                painelTextoNome.SetActive(false); // Desativa o painel de texto do nome do item
 
             }
         }
