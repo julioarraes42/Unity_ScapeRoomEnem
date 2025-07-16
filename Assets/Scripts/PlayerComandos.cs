@@ -21,6 +21,10 @@ public class PlayerComandos : MonoBehaviour
     public GameObject painelTextoNome;
     public GameObject textoNome;
 
+    // Referencia aos Audio Sources
+    public AudioSource audioSourcePegarItem; // Fonte de áudio para pegar item
+    public AudioSource audioSourceInventario; // Fonte de áudio para abrir inventário
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
@@ -75,6 +79,7 @@ public class PlayerComandos : MonoBehaviour
                 if (hit.collider.CompareTag("Item"))
                 {
                     inventario.AdicionarItem(hit.collider.GetComponent<Item>()); // Adiciona o item ao inventário
+                    audioSourcePegarItem.Play(); // Toca o som de pegar item
                 }
 
             }
@@ -84,6 +89,8 @@ public class PlayerComandos : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            audioSourceInventario.Play(); // Toca o som de abrir inventário
+
             if (inventarioAberto)
             {
                 // Se o inventário já estiver aberto, fecha-o

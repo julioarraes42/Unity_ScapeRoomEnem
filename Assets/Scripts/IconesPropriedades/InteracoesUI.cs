@@ -12,6 +12,11 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public Canvas canvas;
 
+    // Referencia os audios de interação
+    public AudioSource audioLargarItemErrado;
+    public AudioSource audioSegurarItem;
+    public AudioSource audioLargarItemCerto;
+
     public void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -21,6 +26,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         posicaoInicial = rectTransform.anchoredPosition; // Guarda a posição inicial do objeto
         itemSegurado = GetComponent<Slot>().nome; // Obtém o componente Item do objeto arrastado
+        audioSegurarItem.Play(); // Toca o áudio de segurar item
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -46,6 +52,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             {
                 if (hit.collider.GetComponent<SlotCelula>().nome == itemSegurado && !hit.collider.GetComponent<MeshRenderer>().enabled)
                 {
+                    audioLargarItemCerto.Play(); // Toca o áudio de sucesso ao largar o item no local correto
                     hit.collider.GetComponent<MeshRenderer>().enabled = true; // Ativa o renderizador do slot de célula
                     player.GetComponent<Inventario>().RemoverItem(itemSegurado); // Remove o item do inventário do jogador
                     simbolosControlador.GetComponent<QuadroSimbolosControler>().adicionarNumeroCelula(); // Adiciona número de célula no controlador de símbolos
@@ -53,7 +60,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             }
             else
             {
-                Debug.Log("Deu Errado");
+                audioLargarItemErrado.Play(); // Toca o áudio de erro ao largar o item em local errado
             }
         }
 
