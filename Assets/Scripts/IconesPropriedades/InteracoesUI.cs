@@ -8,6 +8,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private Vector2 posicaoInicial;
     public string itemSegurado;
     public GameObject player;
+    public GameObject simbolosControlador; // Referência ao GameObject que contém os símbolos de controle
 
     public Canvas canvas;
 
@@ -47,6 +48,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 {
                     hit.collider.GetComponent<MeshRenderer>().enabled = true; // Ativa o renderizador do slot de célula
                     player.GetComponent<Inventario>().RemoverItem(itemSegurado); // Remove o item do inventário do jogador
+                    simbolosControlador.GetComponent<QuadroSimbolosControler>().adicionarNumeroCelula(); // Adiciona número de célula no controlador de símbolos
                 }
             }
             else
