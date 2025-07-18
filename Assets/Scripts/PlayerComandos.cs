@@ -20,6 +20,7 @@ public class PlayerComandos : MonoBehaviour
     public GameObject comandoInventarioUI;
     public GameObject painelTextoNome;
     public GameObject textoNome;
+    public GameObject descricaoParteCelula;
 
     // Referencia aos Audio Sources
     public AudioSource audioSourcePegarItem; // Fonte de áudio para pegar item
@@ -69,6 +70,18 @@ public class PlayerComandos : MonoBehaviour
                 comandoPegarUI.SetActive(false); // Desativa a UI de comando de pegar item se não estiver sobre um item
                 painelTextoNome.SetActive(false); // Desativa o painel de texto do nome do item
 
+            }
+        }
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider.CompareTag("SlotCelula") && !inventarioAberto)
+            {
+                
+            }
+            else if (!hit.collider.CompareTag("SlotCelula") && comandoPegarUI.activeSelf)
+            {
+                
             }
         }
 
