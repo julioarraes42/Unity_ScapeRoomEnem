@@ -94,6 +94,10 @@ public class PlayerComandos : MonoBehaviour
                     inventario.AdicionarItem(hit.collider.GetComponent<Item>()); // Adiciona o item ao inventário
                     audioSourcePegarItem.Play(); // Toca o som de pegar item
                 }
+                else if (hit.collider.CompareTag("InteracaoAnimada"))
+                {
+                    hit.collider.GetComponent<Porta>().Interacao(); // Chama o método de interação da porta
+                }
 
             }
 
