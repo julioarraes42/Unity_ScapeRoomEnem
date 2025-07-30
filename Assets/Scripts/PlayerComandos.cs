@@ -21,16 +21,24 @@ public class PlayerComandos : MonoBehaviour
     public GameObject painelTextoNome;
     public GameObject textoNome;
     public GameObject descricaoParteCelula;
+    public GameObject comandoInspecionarUI;
+    public GameObject comandoSairInspecaoUI;
 
     // Referencia aos Audio Sources
     public AudioSource audioSourcePegarItem; // Fonte de áudio para pegar item
     public AudioSource audioSourceInventario; // Fonte de áudio para abrir inventário
+
+    // Referencia ao computador para a ação de inspecionalo
+    public GameObject computador; // Referência ao computador para interação
+    private bool inspecionandoComputador = false; // Variável para controlar se está inspecionando o computador
+    private Vector3 cameraPosicao; // Referência à posição da câmera para inspeção
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
         controler = GetComponent<CharacterController>(); // Obtém o componente CharacterController do jogador
         inventario = GetComponent<Inventario>(); // Obtém o componente Inventario do jogador
+        comandoSairInspecaoUI.SetActive(false); // Desativa a UI de comando de sair da inspeção inicialmente
     }
     void Update()
     {
@@ -75,6 +83,18 @@ public class PlayerComandos : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            if (hit.collider.CompareTag("Computador") && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
+            {
+                comandoInspecionarUI.SetActive(true); // Ativa a UI de comando de inspecionar
+            }
+            else if ((!hit.collider.CompareTag("Computador") && comandoInspecionarUI.activeSelf) || menuAberto)
+            {
+                comandoInspecionarUI.SetActive(false); // Desativa a UI de comando de inspecionar se não estiver sobre um slot de célula
+            }
+        }
+
+        if (Physics.Raycast(ray, out hit))
+        {
             if (hit.collider.CompareTag("SlotCelula") && !inventarioAberto)
             {
                 
@@ -97,6 +117,10 @@ public class PlayerComandos : MonoBehaviour
                 else if (hit.collider.CompareTag("InteracaoAnimada"))
                 {
                     hit.collider.GetComponent<Porta>().Interacao(); // Chama o método de interação da porta
+                }
+                else if (hit.collider.CompareTag("Computador"))
+                {
+                    InspecionarComputador(); // Chama o método para inspecionar o computador
                 }
 
             }
@@ -128,5 +152,36 @@ public class PlayerComandos : MonoBehaviour
             }
         }
 
+    }
+
+    public void InspecionarComputador()
+    {
+        if (computador != null)
+        {
+            if(!inspecionandoComputador)
+            {
+                // Se não está inspecionando, inicia a inspeção
+                comandoInventarioUI.SetActive(false); // Desativa o comando de inventário
+                mira.SetActive(false); // Desativa a mira
+                comandoSairInspecaoUI.SetActive(true); // Ativa o comando de sair da inspeção
+                cameraPosicao = mainCamera.transform.position; // Armazena a posição atual da câmera
+                inspecionandoComputador = true;
+                mainCamera.position = computador.transform.position + new Vector3(0, 0.65f, -1f); // Posiciona a câmera na frente do computador
+                mainCamera.rotation = Quaternion.Euler(0, 0, 0); // Reseta a rotação da câmera
+                Cursor.lockState = CursorLockMode.None; // Libera o cursor
+                menuAberto = true; // Marca o menu como aberto
+            }
+            else
+            {
+                // Se já está inspecionando, fecha a inspeção
+                inspecionandoComputador = false;
+                Cursor.lockState = CursorLockMode.Locked; // Trava o cursor novamente
+                menuAberto = false; // Marca o menu como fechado
+                mainCamera.position = cameraPosicao; // Restaura a posição original da câmera
+                comandoInventarioUI.SetActive(true); // Reativa o comando de inventário
+                mira.SetActive(true); // Reativa a mira
+                comandoSairInspecaoUI.SetActive(false); // Desativa o comando de sair da inspeção
+            }
+        }
     }
 }
