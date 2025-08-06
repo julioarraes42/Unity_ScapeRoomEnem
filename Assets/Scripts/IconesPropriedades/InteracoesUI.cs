@@ -17,6 +17,12 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public AudioSource audioSegurarItem;
     public AudioSource audioLargarItemCerto;
 
+    // Referencia a particulas
+    public GameObject particulasAcido; // Partículas para o ácido
+
+    // Referencia a materiais
+    public Material acido;
+
     public void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -56,6 +62,31 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                     hit.collider.GetComponent<MeshRenderer>().enabled = true; // Ativa o renderizador do slot de célula
                     player.GetComponent<Inventario>().RemoverItem(itemSegurado); // Remove o item do inventário do jogador
                     simbolosControlador.GetComponent<QuadroSimbolosControler>().adicionarNumeroCelula(); // Adiciona número de célula no controlador de símbolos
+                }
+            }
+            else if (hit.collider.CompareTag("Forno"))
+            {
+                if (itemSegurado == "Agua")
+                {
+                    hit.collider.transform.Find("BequerCheio").GameObject().SetActive(true); // Ativa o bequer cheio no forno
+                    player.GetComponent<Inventario>().RemoverItem(itemSegurado);
+                }
+                else if (itemSegurado == "Nitrogenio")
+                {
+                    particulasAcido.GetComponent<ParticleSystem>().startLifetime = 12f;
+                    particulasAcido.GetComponent<ParticleSystem>().startSpeed = 1f;
+
+                    ParticleSystem particleSystem = particulasAcido.GetComponent<ParticleSystem>();
+                    var emission = particleSystem.emission;
+                    emission.rateOverTime = 30f; // Aumenta a taxa de emissão das partículas
+
+                    player.GetComponent<Inventario>().RemoverItem(itemSegurado);
+                }
+                else if (itemSegurado == "Enxofre")
+                {
+                    acido.SetColor("_BaseColor", Color.yellow); // Muda a cor do material para amarelo (enxofre)
+                    player.GetComponent<Inventario>().RemoverItem(itemSegurado);
+                    particulasAcido.GetComponent<ParticleSystem>().startColor = Color.yellow; // Define a cor das partículas para amarelo
                 }
             }
             else

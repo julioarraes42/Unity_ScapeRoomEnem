@@ -9,6 +9,7 @@ TagManager:
   - SlotCelula
   - InteracaoAnimada
   - Computador
+  - Forno
   layers:
   - Default
   - TransparentFX
