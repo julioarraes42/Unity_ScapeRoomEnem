@@ -1245,6 +1245,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2875677854808684420, guid: b5a7fbdc2ef5c1d43bb5e76330474a66, type: 3}
   m_PrefabInstance: {fileID: 1845575576}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &149357938 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f96961ba54e57f5479e513f8ca716f29, type: 3}
+  m_PrefabInstance: {fileID: 387057058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &149455244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8116613859084990610, guid: c4efbe79a2aa1bb47954f9c9b34eeb24, type: 3}
@@ -7747,7 +7752,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1302525574}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f96961ba54e57f5479e513f8ca716f29, type: 3}
       propertyPath: m_LocalScale.x
@@ -7763,15 +7768,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f96961ba54e57f5479e513f8ca716f29, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.006
+      value: 3.083
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f96961ba54e57f5479e513f8ca716f29, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.677
+      value: 1.9669626
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f96961ba54e57f5479e513f8ca716f29, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.009
+      value: -7.533
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f96961ba54e57f5479e513f8ca716f29, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15349,6 +15354,7 @@ Transform:
   - {fileID: 10819859}
   - {fileID: 1329671577}
   - {fileID: 1361318569}
+  - {fileID: 149357938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1328100522
@@ -27499,4 +27505,3 @@ SceneRoots:
   - {fileID: 1302525574}
   - {fileID: 996050654}
   - {fileID: 1199140578}
-  - {fileID: 387057058}
