@@ -5,7 +5,7 @@ public class Irrigacao : MonoBehaviour
 {
     public int contagem;
 
-    public GameObject vasilhaComAgua; // Vasilha com água
+    public Material Agua; // Vasilha com água
     public GameObject irrigacaoParticula; // Partículas de irrigação
     public GameObject Vapor; // Partículas de vapor
 
@@ -68,7 +68,7 @@ public class Irrigacao : MonoBehaviour
             irrigacaoParticula.SetActive(true); // Ativa as partículas de irrigação
             yield return new WaitForSeconds(8f);
             Vapor.GetComponent<ParticleSystem>().Stop(); // Para as partículas de vapor
-            vasilhaComAgua.GetComponent<MeshRenderer>().materials[1].color = Color.blue; // Muda a cor do material da vasilha para azul (água)
+            Agua.SetColor("_BaseColor", Color.blue); // Reseta a cor da água para azul
             yield return new WaitForSeconds(10f);
             irrigacaoParticula.SetActive(false); // Desativa as partículas de irrigação
         }
