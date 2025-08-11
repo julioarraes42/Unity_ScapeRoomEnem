@@ -23,6 +23,7 @@ public class PlayerComandos : MonoBehaviour
     public GameObject descricaoParteCelula;
     public GameObject comandoInspecionarUI;
     public GameObject comandoSairInspecaoUI;
+    public GameObject telaSenhaUI; // Referência à UI de tela de senha
 
     // Referencia aos Audio Sources
     public AudioSource audioSourcePegarItem; // Fonte de áudio para pegar item
@@ -121,11 +122,12 @@ public class PlayerComandos : MonoBehaviour
                 else if (hit.collider.CompareTag("Computador"))
                 {
                     InspecionarComputador(); // Chama o método para inspecionar o computador
+                }else if (hit.collider.CompareTag("LeitorSenha"))
+                {
+                    telaSenhaUI.SetActive(true);
                 }
 
             }
-
-
         }
 
         if (Input.GetKeyDown(KeyCode.Q))

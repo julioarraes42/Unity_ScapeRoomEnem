@@ -10,6 +10,7 @@ TagManager:
   - InteracaoAnimada
   - Computador
   - Forno
+  - LeitorSenha
   layers:
   - Default
   - TransparentFX
