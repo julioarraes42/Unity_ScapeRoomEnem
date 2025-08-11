@@ -9,7 +9,6 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public string itemSegurado;
     public GameObject player;
     public GameObject simbolosControlador; // Referência ao GameObject que contém os símbolos de controle
-
     public Canvas canvas;
 
     // Referencia os audios de interação
@@ -22,6 +21,9 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     // Referencia a materiais
     public Material acido;
+
+    // Referencia a controladores
+    public GameObject animacaoControlador; // Controlador de animação
 
     public void Awake()
     {
@@ -70,8 +72,9 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 {
                     hit.collider.transform.Find("BequerCheio").GameObject().SetActive(true); // Ativa o bequer cheio no forno
                     player.GetComponent<Inventario>().RemoverItem(itemSegurado);
+                    animacaoControlador.GetComponent<Irrigacao>().AdicionarItem(); // Aumenta a contagem do atributo Irrigação
                 }
-                else if (itemSegurado == "Nitrogenio")
+                else if (itemSegurado == "Nitrogenio" && (animacaoControlador.GetComponent<Irrigacao>().contagem >= 1))
                 {
                     particulasAcido.GetComponent<ParticleSystem>().startLifetime = 12f;
                     particulasAcido.GetComponent<ParticleSystem>().startSpeed = 1f;
@@ -81,12 +84,19 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                     emission.rateOverTime = 30f; // Aumenta a taxa de emissão das partículas
 
                     player.GetComponent<Inventario>().RemoverItem(itemSegurado);
+                    animacaoControlador.GetComponent<Irrigacao>().AdicionarItem(); // Aumenta a contagem do atributo Irrigação
                 }
-                else if (itemSegurado == "Enxofre")
+                else if (itemSegurado == "Enxofre" && (animacaoControlador.GetComponent<Irrigacao>().contagem >= 1))
                 {
                     acido.SetColor("_BaseColor", Color.yellow); // Muda a cor do material para amarelo (enxofre)
                     player.GetComponent<Inventario>().RemoverItem(itemSegurado);
                     particulasAcido.GetComponent<ParticleSystem>().startColor = Color.yellow; // Define a cor das partículas para amarelo
+                    animacaoControlador.GetComponent<Irrigacao>().AdicionarItem(); // Aumenta a contagem do atributo Irrigação
+                }
+
+                if (animacaoControlador.GetComponent<Irrigacao>().contagem == 3)
+                {
+                    animacaoControlador.GetComponent<Irrigacao>().Inicio(); // Inicia a animação de irrigação se a contagem for 3
                 }
             }
             else
