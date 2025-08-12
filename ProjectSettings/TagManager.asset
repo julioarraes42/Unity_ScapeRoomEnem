@@ -11,6 +11,7 @@ TagManager:
   - Computador
   - Forno
   - LeitorSenha
+  - Cadeado
   layers:
   - Default
   - TransparentFX

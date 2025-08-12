@@ -84,11 +84,11 @@ public class PlayerComandos : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.CompareTag("Computador") && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
+            if ((hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado")) && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
             {
                 comandoInspecionarUI.SetActive(true); // Ativa a UI de comando de inspecionar
             }
-            else if ((!hit.collider.CompareTag("Computador") && comandoInspecionarUI.activeSelf) || menuAberto)
+            else if ((!(hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado")) && comandoInspecionarUI.activeSelf) || menuAberto)
             {
                 comandoInspecionarUI.SetActive(false); // Desativa a UI de comando de inspecionar se não estiver sobre um slot de célula
             }
