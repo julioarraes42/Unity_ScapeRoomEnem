@@ -122,11 +122,16 @@ public class PlayerComandos : MonoBehaviour
                 else if (hit.collider.CompareTag("Computador"))
                 {
                     InspecionarComputador(); // Chama o método para inspecionar o computador
-                }else if (hit.collider.CompareTag("LeitorSenha"))
+                }
+                else if (hit.collider.CompareTag("LeitorSenha"))
                 {
                     telaSenhaUI.SetActive(true);
                 }
-
+                else if (hit.collider.CompareTag("Cadeado") && !hit.collider.GetComponent<QuadroDesafiosControlador>().blockeado)
+                {
+                    hit.collider.GetComponent<QuadroDesafiosControlador>().IniciarDesafio(); // Chama o método de interação do cadeado
+                    menuAberto = true; // Marca o menu como aberto
+                }
             }
         }
 

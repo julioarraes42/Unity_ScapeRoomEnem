@@ -25,6 +25,9 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     // Referencia a controladores
     public GameObject animacaoControlador; // Controlador de animação
 
+    // Referencia o controlador dos puzzles
+    public GameObject puzzleControlador;
+
     public void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -63,7 +66,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                     audioLargarItemCerto.Play(); // Toca o áudio de sucesso ao largar o item no local correto
                     hit.collider.GetComponent<MeshRenderer>().enabled = true; // Ativa o renderizador do slot de célula
                     player.GetComponent<Inventario>().RemoverItem(itemSegurado); // Remove o item do inventário do jogador
-                    simbolosControlador.GetComponent<QuadroSimbolosControler>().adicionarNumeroCelula(); // Adiciona número de célula no controlador de símbolos
+                    puzzleControlador.GetComponent<PuzzleCelulaControlador>().AdicionarContagem(); // Adiciona à contagem do controlador do puzzle da célula
                 }
             }
             else if (hit.collider.CompareTag("Forno"))
