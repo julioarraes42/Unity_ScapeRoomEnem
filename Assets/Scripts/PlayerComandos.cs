@@ -34,6 +34,9 @@ public class PlayerComandos : MonoBehaviour
     private bool inspecionandoComputador = false; // Variável para controlar se está inspecionando o computador
     private Vector3 cameraPosicao; // Referência à posição da câmera para inspeção
 
+    // Referência aos Controladores
+    public GameObject leitorSenhaControlador; // Controlador do leitor de senha
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
@@ -65,6 +68,8 @@ public class PlayerComandos : MonoBehaviour
             controler.Move(movimento * velocidade * Time.deltaTime); // Move o jogador com base no input e velocidade
         }
 
+        // Aparecer elementos da UI ao passar a mira em cima
+
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider.CompareTag("Item") && !comandoPegarUI.activeSelf && !inventarioAberto)
@@ -84,11 +89,11 @@ public class PlayerComandos : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if ((hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado")) && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
+            if ((hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha")) && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
             {
                 comandoInspecionarUI.SetActive(true); // Ativa a UI de comando de inspecionar
             }
-            else if ((!(hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado")) && comandoInspecionarUI.activeSelf) || menuAberto)
+            else if ((!(hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha")) && comandoInspecionarUI.activeSelf) || menuAberto)
             {
                 comandoInspecionarUI.SetActive(false); // Desativa a UI de comando de inspecionar se não estiver sobre um slot de célula
             }
@@ -125,7 +130,7 @@ public class PlayerComandos : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("LeitorSenha"))
                 {
-                    telaSenhaUI.SetActive(true);
+                    leitorSenhaControlador.GetComponent<LeitorSenhaControler>().Iniciar(); // Inicia a interação com o leitor de senha
                 }
                 else if (hit.collider.CompareTag("Cadeado") && !hit.collider.GetComponent<QuadroDesafiosControlador>().blockeado)
                 {
@@ -135,7 +140,7 @@ public class PlayerComandos : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !menuAberto)
         {
             audioSourceInventario.Play(); // Toca o som de abrir inventário
 

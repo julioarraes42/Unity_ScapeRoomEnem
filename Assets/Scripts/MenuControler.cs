@@ -5,6 +5,8 @@ public class MenuControler : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject inteface;
+    private bool menuAberto = false;
+    private bool cursorLiberado = false;
 
     public void Update()
     {
@@ -17,17 +19,24 @@ public class MenuControler : MonoBehaviour
     // Bottoes do menu
     
     public void Resumir(){
-        GetComponent<PlayerComandos>().menuAberto = !GetComponent<PlayerComandos>().menuAberto;
-        if (GetComponent<PlayerComandos>().menuAberto)
+
+        if (cursorLiberado)
         {
-            Cursor.lockState = CursorLockMode.None; // Libera o cursor
+            Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked; // Trava o cursor novamente
+            Cursor.lockState = CursorLockMode.None; // Libera o cursor
+            menuAberto = GetComponent<PlayerComandos>().menuAberto;
         }
-        mainMenu.SetActive(!mainMenu.activeSelf);
-        inteface.SetActive(!inteface.activeSelf);
+        mainMenu.SetActive(!mainMenu.active);
+        inteface.SetActive(!inteface.active);
+        cursorLiberado = !cursorLiberado; // Inverte o estado do cursor
+
+        if (!menuAberto)
+        {
+            GetComponent<PlayerComandos>().menuAberto = !GetComponent<PlayerComandos>().menuAberto;
+        }
     }
 
     public void Resetar()

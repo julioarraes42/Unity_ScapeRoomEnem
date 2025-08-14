@@ -13,16 +13,8 @@ public class Irrigacao : MonoBehaviour
     public GameObject[] plantas;
     public GameObject lampada;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Game objects para deixas as plantas invisiveis inicialmente
+    public GameObject[] plantasInvisiveis;
 
     public void AdicionarItem()
     {
@@ -66,6 +58,13 @@ public class Irrigacao : MonoBehaviour
         {
             yield return new WaitForSeconds(2f); // Espera 2 segundos
             irrigacaoParticula.SetActive(true); // Ativa as partículas de irrigação
+            for (int i = 0; i < plantasInvisiveis.Length; i++)
+            {
+                if (plantasInvisiveis[i] != null)
+                {
+                    plantasInvisiveis[i].GetComponent<MeshRenderer>().enabled = true; // Torna as plantas invisíveis visíveis
+                }
+            }
             yield return new WaitForSeconds(8f);
             Vapor.GetComponent<ParticleSystem>().Stop(); // Para as partículas de vapor
             Agua.SetColor("_BaseColor", Color.blue); // Reseta a cor da água para azul

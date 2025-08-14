@@ -9,6 +9,8 @@ public class LeitorSenhaControler : MonoBehaviour
     public GameObject portaPivo;
     public GameObject painelSenha;
 
+    public GameObject player; // Referência ao jogador
+
     public GameObject puzzleControler;
 
     public void Adicionar(int valor)
@@ -33,10 +35,20 @@ public class LeitorSenhaControler : MonoBehaviour
             portaPivo.GetComponent<Porta>().Interacao();
             painelSenha.SetActive(false);
             puzzleControler.GetComponent<PuzzleCelulaControlador>().AbrirQuadro4();
+            player.GetComponent<PlayerComandos>().menuAberto = false; // Fecha o menu do jogador
+            Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
         }
         else
         {
             Debug.Log("Senha incorreta!");
         }
+    }
+
+    public void Iniciar()
+    {
+        painelSenha.SetActive(true);
+        player.GetComponent<PlayerComandos>().menuAberto = true; // Abre o menu do jogador
+        Cursor.lockState = CursorLockMode.None; // Libera o cursor
+
     }
 }
