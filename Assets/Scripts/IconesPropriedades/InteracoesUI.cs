@@ -100,6 +100,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 if (animacaoControlador.GetComponent<Irrigacao>().contagem == 3)
                 {
                     animacaoControlador.GetComponent<Irrigacao>().Inicio(); // Inicia a animação de irrigação se a contagem for 3
+                    puzzleControlador.GetComponent<PuzzleCelulaControlador>().AbrirQuadro3(); // Abre o terceiro quadro do puzzle
                 }
             }
             else

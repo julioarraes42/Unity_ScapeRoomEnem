@@ -7,13 +7,17 @@ public class ComputadorControler : MonoBehaviour
     public GameObject telaImagem;
     public GameObject telaErro;
 
+    public GameObject puzzleControlador; // Referência ao controlador do puzzle
+
     public void VerificarResultado()
     {
         if(GetComponent<SenhaControlador>().Verificar())
         {
             telaSenha.SetActive(false);
             telaImagem.SetActive(true);
-        }else
+            puzzleControlador.GetComponent<PuzzleCelulaControlador>().AbrirQuadro2();
+        }
+        else
         {
             StartCoroutine(Esperar());
         }

@@ -9,6 +9,8 @@ public class LeitorSenhaControler : MonoBehaviour
     public GameObject portaPivo;
     public GameObject painelSenha;
 
+    public GameObject puzzleControler;
+
     public void Adicionar(int valor)
     {
         if (quantidadeDigitos < 4)
@@ -30,6 +32,7 @@ public class LeitorSenhaControler : MonoBehaviour
         {
             portaPivo.GetComponent<Porta>().Interacao();
             painelSenha.SetActive(false);
+            puzzleControler.GetComponent<PuzzleCelulaControlador>().AbrirQuadro4();
         }
         else
         {
