@@ -38,6 +38,9 @@ public class CanvasDesafioControlador : MonoBehaviour
         quadro = quadroVar;
 
         AtualizarPergunta();
+
+        // Desblockeia o cursor do centro da tela
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void FecharDesafio()
@@ -45,6 +48,9 @@ public class CanvasDesafioControlador : MonoBehaviour
         tela.SetActive(false);
         player.GetComponent<PlayerComandos>().menuAberto = false;
         quadro.GetComponent<QuadroDesafiosControlador>().Concluir();
+
+        // Bloqueia o cursor no centro da tela
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void AtualizarPergunta()

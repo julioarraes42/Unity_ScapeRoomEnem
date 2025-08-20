@@ -12,6 +12,7 @@ TagManager:
   - Forno
   - LeitorSenha
   - Cadeado
+  - Interrupitor
   layers:
   - Default
   - TransparentFX

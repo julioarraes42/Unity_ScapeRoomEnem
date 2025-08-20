@@ -103,14 +103,17 @@ public class PlayerComandos : MonoBehaviour
         {
             if (hit.collider.CompareTag("SlotCelula") && !inventarioAberto)
             {
-                
+
             }
             else if (!hit.collider.CompareTag("SlotCelula") && comandoPegarUI.activeSelf)
             {
-                
+
             }
         }
 
+
+        // Interaçoes apertando E
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         if (Input.GetKeyDown(KeyCode.E) && !inventarioAberto)
         {
             if (Physics.Raycast(ray, out hit))
@@ -137,8 +140,13 @@ public class PlayerComandos : MonoBehaviour
                     hit.collider.GetComponent<QuadroDesafiosControlador>().IniciarDesafio(); // Chama o método de interação do cadeado
                     menuAberto = true; // Marca o menu como aberto
                 }
+                else if (hit.collider.CompareTag("Interrupitor"))
+                {
+                    hit.collider.GetComponent<InterrupitorControlador>().Ativar(); // Chama o método de ativação do interrupitor
+                }
             }
         }
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         if (Input.GetKeyDown(KeyCode.Q) && !menuAberto)
         {
@@ -163,7 +171,6 @@ public class PlayerComandos : MonoBehaviour
                 comandoInventarioUI.SetActive(false);
             }
         }
-
     }
 
     public void InspecionarComputador()
