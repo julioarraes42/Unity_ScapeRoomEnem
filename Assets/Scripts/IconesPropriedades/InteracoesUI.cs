@@ -24,9 +24,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     // Referencia a controladores
     public GameObject animacaoControlador; // Controlador de animação
-
-    // Referencia o controlador dos puzzles
-    public GameObject puzzleControlador;
+    public GameObject puzzleControlador; //controlador dos puzzles
 
     public void Awake()
     {
@@ -101,6 +99,18 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 {
                     animacaoControlador.GetComponent<Irrigacao>().Inicio(); // Inicia a animação de irrigação se a contagem for 3
                     puzzleControlador.GetComponent<PuzzleCelulaControlador>().AbrirQuadro3(); // Abre o terceiro quadro do puzzle
+                }
+            }
+            else if (hit.collider.CompareTag("Quadro"))
+            {
+                if (itemSegurado == "ChaveDeFenda")
+                {
+                    animacaoControlador.GetComponent<TirarQuadroControlador>().iniciarAnimacao();
+                    player.GetComponent<Inventario>().RemoverItem(itemSegurado); // Remove o item do inventário do jogador
+                }
+                else
+                {
+                    audioLargarItemErrado.Play(); // Toca o áudio de erro ao largar o item em local errado
                 }
             }
             else

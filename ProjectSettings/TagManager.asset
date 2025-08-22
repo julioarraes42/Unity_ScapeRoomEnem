@@ -13,6 +13,7 @@ TagManager:
   - LeitorSenha
   - Cadeado
   - Interrupitor
+  - Quadro
   layers:
   - Default
   - TransparentFX
