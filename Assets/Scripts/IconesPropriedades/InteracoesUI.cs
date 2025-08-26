@@ -113,6 +113,14 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                     audioLargarItemErrado.Play(); // Toca o áudio de erro ao largar o item em local errado
                 }
             }
+            else if (hit.collider.CompareTag("PortaFinal"))
+            {
+                if (itemSegurado == "Chave")
+                {
+                    animacaoControlador.GetComponent<PortaFinalControlador>().Abrir();
+                    player.GetComponent<Inventario>().RemoverItem(itemSegurado);
+                }
+            }
             else
             {
                 audioLargarItemErrado.Play(); // Toca o áudio de erro ao largar o item em local errado

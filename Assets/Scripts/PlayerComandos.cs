@@ -144,6 +144,11 @@ public class PlayerComandos : MonoBehaviour
                 {
                     hit.collider.GetComponent<InterrupitorControlador>().Ativar(); // Chama o método de ativação do interrupitor
                 }
+                else if (hit.collider.CompareTag("Cofre"))
+                {
+                    Debug.Log("Iniciando cofre...");
+                    leitorSenhaControlador.GetComponent<CofreSenhaControlador>().iniciar(); // Chama o método de iniciar do cofre
+                }
             }
         }
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
