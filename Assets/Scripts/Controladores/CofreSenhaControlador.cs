@@ -13,10 +13,10 @@ public class CofreSenhaControlador : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.E) && tela.activeSelf)
-        {
-            fechar();
-        }
+///        if (Input.GetKeyDown(KeyCode.E) && tela.activeSelf)
+///        {
+///            fechar();
+///        }
     }
 
     void Start()
@@ -27,13 +27,19 @@ public class CofreSenhaControlador : MonoBehaviour
     public void iniciar()
     {
         player.GetComponent<PlayerComandos>().menuAberto = true;
+
         Cursor.lockState = CursorLockMode.None;
 
         tela.SetActive(true);
+
         for (int i = 0; i < digitos.Length; i++)
         {
             digitos[i].GetComponent<CofreDigito>().Iniciar();
+
+            Debug.Log(digitos[i].GetComponent<CofreDigito>().numero);
         }
+
+        tela.SetActive(true);
     }
 
     public void fechar()
@@ -56,17 +62,17 @@ public class CofreSenhaControlador : MonoBehaviour
 
         if (tentativa == senha)
         {
-            Debug.Log("Senha correta!");
+
             aberto = true;
             cofre.GetComponent<BoxCollider>().enabled = false;
-            Debug.Log("Senha correta!");
+
             cofre.GetComponent<Animator>().SetTrigger("Ativar");
-            Debug.Log("Senha correta!");
+
             fechar();
         }
         else
         {
-            Debug.Log("Senha incorreta. Tente novamente.");
+
             fechar();
         }
     }

@@ -8,6 +8,7 @@ public class TirarQuadroControlador : MonoBehaviour
     public void iniciarAnimacao()
     {
         chaveDeFenda.SetActive(true);
+        quadro.GetComponent<BoxCollider>().enabled = false;
         quadro.GetComponent<Animator>().SetTrigger("TirarQuadro");
     }
 }

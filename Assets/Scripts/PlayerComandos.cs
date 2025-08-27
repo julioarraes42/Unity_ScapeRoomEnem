@@ -153,6 +153,9 @@ public class PlayerComandos : MonoBehaviour
         }
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+
+        // Abrir e fechar inventário
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         if (Input.GetKeyDown(KeyCode.Q) && !menuAberto)
         {
             audioSourceInventario.Play(); // Toca o som de abrir inventário
@@ -176,6 +179,7 @@ public class PlayerComandos : MonoBehaviour
                 comandoInventarioUI.SetActive(false);
             }
         }
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     }
 
     public void InspecionarComputador()
