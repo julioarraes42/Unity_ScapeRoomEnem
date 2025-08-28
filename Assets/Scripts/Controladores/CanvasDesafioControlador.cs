@@ -43,12 +43,15 @@ public class CanvasDesafioControlador : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void FecharDesafio()
+    public void FecharDesafio(bool concluido)
     {
         tela.SetActive(false);
         player.GetComponent<PlayerComandos>().menuAberto = false;
-        quadro.GetComponent<QuadroDesafiosControlador>().Concluir();
 
+        if (concluido)
+        {
+            quadro.GetComponent<QuadroDesafiosControlador>().Concluir();
+        }
         // Bloqueia o cursor no centro da tela
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -76,9 +79,12 @@ public class CanvasDesafioControlador : MonoBehaviour
             }
             else
             {
-                FecharDesafio();
+                FecharDesafio(true);
             }
 
+        } else
+        {
+            FecharDesafio(false);
         }
     }
 
