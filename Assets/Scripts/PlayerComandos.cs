@@ -116,6 +116,11 @@ public class PlayerComandos : MonoBehaviour
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         if (Input.GetKeyDown(KeyCode.E) && !inventarioAberto)
         {
+            if (leitorSenhaControlador.GetComponent<LeitorSenhaControler>().painelAtivo)
+            {
+                leitorSenhaControlador.GetComponent<LeitorSenhaControler>().Desativar();
+            }
+
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.CompareTag("Item"))
@@ -151,6 +156,8 @@ public class PlayerComandos : MonoBehaviour
                 }
             }
         }
+
+
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 

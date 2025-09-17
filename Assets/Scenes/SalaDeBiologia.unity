@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.011841535, g: 0.011841535, b: 0.011841535, a: 1}
-  m_AmbientEquatorColor: {r: 0.4433962, g: 0.37382224, b: 0, a: 1}
-  m_AmbientGroundColor: {r: 0.6415094, g: 0, b: 0.3895757, a: 1}
-  m_AmbientIntensity: 0.23
-  m_AmbientMode: 3
-  m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
+  m_AmbientEquatorColor: {r: 1, g: 0.989954, b: 0, a: 1}
+  m_AmbientGroundColor: {r: 0, g: 1, b: 0.054877996, a: 1}
+  m_AmbientIntensity: 0
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 82b660520bdecce4daf45d270ec93fe4, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -12253,11 +12253,11 @@ Transform:
   m_GameObject: {fileID: 446493297}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999854, y: -0.4999999, z: 0.5000001, w: 0.50000155}
-  m_LocalPosition: {x: 0.65713, y: 0.025357485, z: 12.515607}
+  m_LocalPosition: {x: 2.5718377, y: -2.216015, z: -1.8594027}
   m_LocalScale: {x: 3, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1391862034}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!1 &449063429 stripped
 GameObject:
@@ -13509,10 +13509,14 @@ MonoBehaviour:
   digito: {fileID: 151291377}
   quantidadeDigitos: 0
   senhaCorreta: 6109
+  painelAtivo: 0
   portaPivo: {fileID: 1206991423}
   painelSenha: {fileID: 1459950841}
   player: {fileID: 269738790}
   puzzleControler: {fileID: 1701192539}
+  paineis:
+  - {fileID: 1328609135}
+  - {fileID: 948107835}
 --- !u!4 &514936270
 Transform:
   m_ObjectHideFlags: 0
@@ -15252,11 +15256,11 @@ Transform:
   m_GameObject: {fileID: 630415477}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: 10.621096, y: 3.4784253, z: 12.515607}
+  m_LocalPosition: {x: 12.535803, y: 1.2370527, z: -1.8594027}
   m_LocalScale: {x: 3, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1391862034}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &634562374 stripped
 GameObject:
@@ -15940,7 +15944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.32605, y: -36.005127}
+  m_AnchoredPosition: {x: -8.32605, y: -163.25508}
   m_SizeDelta: {x: 910.85, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705145060
@@ -18035,7 +18039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A)
+  m_text: C)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20379,12 +20383,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027089457}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.294148, y: 3.3551576, z: -8.209094}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.37944, y: 1.113785, z: -22.584103}
   m_LocalScale: {x: 1, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1391862034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1027089463
 Rigidbody:
@@ -20498,7 +20502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.32605, y: 25}
+  m_AnchoredPosition: {x: -8.32605, y: -102.24997}
   m_SizeDelta: {x: 910.85, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1034113641
@@ -21979,25 +21983,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controladorTela: {fileID: 514936268}
-  pergunta1: pergunta1
+  pergunta1: "Nas plantas, os est\xF4matos s\xE3o estruturas localizadas principalmente
+    na epiderme das folhas. Sua principal fun\xE7\xE3o est\xE1 relacionada a:"
   respostas1:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  pergunta2: pergunta2
+  - "Absorver \xE1gua diretamente do solo."
+  - "Controlar a troca gasosa e a perda de \xE1gua por transpira\xE7\xE3o."
+  - "Realizar a fotoss\xEDntese, captando luz solar."
+  - Transportar seiva elaborada pelo floema.
+  pergunta2: "As plantas vasculares possuem dois tecidos especializados para transporte:
+    o xilema e o floema. A principal diferen\xE7a entre eles \xE9 que:"
   respostas2:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  pergunta3: pergunta3
+  - "O xilema transporta seiva org\xE2nica, e o floema, seiva bruta."
+  - "O floema transporta \xE1gua e sais minerais, e o xilema, subst\xE2ncias org\xE2nicas."
+  - "Ambos transportam apenas subst\xE2ncias org\xE2nicas."
+  - "O xilema transporta \xE1gua e sais minerais, e o floema, subst\xE2ncias org\xE2nicas."
+  pergunta3: "Em regi\xF5es de clima seco, algumas plantas desenvolveram adapta\xE7\xF5es
+    para reduzir a perda de \xE1gua. Um exemplo dessas adapta\xE7\xF5es \xE9:"
   respostas3:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  gabarito: 000000000100000002000000
+  - "Folhas largas e finas para aumentar a transpira\xE7\xE3o."
+  - "Grande quantidade de est\xF4matos abertos durante o dia."
+  - "Aumento da \xE1rea foliar para maximizar a fotoss\xEDntese."
+  - "Presen\xE7a de cut\xEDcula espessa e folhas modificadas em espinhos."
+  gabarito: 010000000300000003000000
   quadro: {fileID: 1107147170}
   blockeado: 1
   quadroTrancado: {fileID: 1212512978}
@@ -22323,7 +22330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.32605, y: -94.96533}
+  m_AnchoredPosition: {x: -8.32605, y: -222.21529}
   m_SizeDelta: {x: 910.85, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1125539558
@@ -22604,8 +22611,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.327209, y: 220.12323}
-  m_SizeDelta: {x: 910.8546, y: 206.824}
+  m_AnchoredPosition: {x: -8.327209, y: 154.05115}
+  m_SizeDelta: {x: 910.8546, y: 351.2036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1155726443
 MonoBehaviour:
@@ -23391,12 +23398,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198142471}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.243769, y: 3.4784257, z: 11.728505}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.158476, y: 1.2370532, z: -2.6465044}
   m_LocalScale: {x: 4, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1391862034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198977459
 GameObject:
@@ -23687,12 +23694,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1201331579}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08367157, y: 3.4784253, z: 14.097077}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.9983792, y: 1.2370527, z: -0.27793217}
   m_LocalScale: {x: 20, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1391862034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1204225128
 GameObject:
@@ -24560,25 +24567,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controladorTela: {fileID: 514936268}
-  pergunta1: pergunta1
+  pergunta1: "A chuva \xE1cida \xE9 causada principalmente pela emiss\xE3o de gases
+    como di\xF3xido de enxofre (SO\u2082) e \xF3xidos de nitrog\xEAnio (NOx), que
+    reagem com a \xE1gua da atmosfera formando \xE1cidos. Qual das alternativas apresenta
+    uma consequ\xEAncia direta desse fen\xF4meno?"
   respostas1:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  pergunta2: pergunta2
+  - "Aumento da camada de oz\xF4nio, reduzindo a radia\xE7\xE3o ultravioleta."
+  - "Neutraliza\xE7\xE3o da acidez do solo, favorecendo o crescimento das plantas."
+  - "Corros\xE3o de monumentos e degrada\xE7\xE3o de constru\xE7\xF5es hist\xF3ricas."
+  - "Melhoria da qualidade da \xE1gua pot\xE1vel, devido \xE0 dilui\xE7\xE3o de poluentes."
+  pergunta2: "Um dos principais fatores da forma\xE7\xE3o da chuva \xE1cida \xE9
+    a queima de combust\xEDveis f\xF3sseis, que libera \xF3xidos de enxofre e nitrog\xEAnio.
+    Qual pr\xE1tica reduziria significativamente esse problema?"
   respostas2:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  pergunta3: pergunta3
+  - "Substituir termel\xE9tricas a carv\xE3o por fontes de energia renov\xE1vel."
+  - "Aumentar o uso de autom\xF3veis movidos a diesel."
+  - "Incentivar queimadas para preparar o solo agr\xEDcola."
+  - "Ampliar o uso de combust\xEDveis f\xF3sseis em \xE1reas industriais."
+  pergunta3: "Um ecossistema aqu\xE1tico localizado em uma regi\xE3o industrial passou
+    a apresentar mortandade de peixes e diminui\xE7\xE3o da biodiversidade ap\xF3s
+    anos de polui\xE7\xE3o atmosf\xE9rica. Pesquisadores conclu\xEDram que o fen\xF4meno
+    estava associado \xE0 chuva \xE1cida. Qual foi a principal causa da morte desses
+    organismos?"
   respostas3:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  gabarito: 000000000100000002000000
+  - "Aumento do pH da \xE1gua, tornando-a b\xE1sica."
+  - "Diminui\xE7\xE3o do pH da \xE1gua, tornando-a \xE1cida."
+  - "Eleva\xE7\xE3o da salinidade, inviabilizando a respira\xE7\xE3o dos peixes."
+  - "Forma\xE7\xE3o de oxig\xEAnio molecular, que impede trocas gasosas."
+  gabarito: 020000000000000001000000
   quadro: {fileID: 1249289002}
   blockeado: 1
   quadroTrancado: {fileID: 103918266}
@@ -25540,7 +25556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.32605, y: -153.93625}
+  m_AnchoredPosition: {x: -8.32605, y: -281.18622}
   m_SizeDelta: {x: 910.85, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1316386817
@@ -26589,6 +26605,43 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.020000009, y: 0.015902618, z: 0.058740653}
   m_Center: {x: 0, y: -0.000000014815724, z: 0.01937034}
+--- !u!1 &1391862033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391862034}
+  m_Layer: 0
+  m_Name: Blockeio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1391862034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391862033}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9147077, y: 2.2413726, z: 14.37501}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1198142475}
+  - {fileID: 1201331583}
+  - {fileID: 2014337981}
+  - {fileID: 630415481}
+  - {fileID: 446493301}
+  - {fileID: 1027089462}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1392304736
 GameObject:
   m_ObjectHideFlags: 0
@@ -27614,25 +27667,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controladorTela: {fileID: 514936268}
-  pergunta1: pergunta1
+  pergunta1: "As c\xE9lulas procari\xF3ticas e eucari\xF3ticas apresentam diferen\xE7as
+    fundamentais. Uma delas est\xE1 relacionada \xE0 presen\xE7a de estruturas envoltas
+    por membrana. Qual das alternativas corretamente diferencia os dois tipos celulares?"
   respostas1:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  pergunta2: pergunta2
+  - "Apenas as c\xE9lulas procari\xF3ticas apresentam n\xFAcleo delimitado por membrana."
+  - "Apenas as c\xE9lulas eucari\xF3ticas apresentam organelas membranosas, como
+    mitoc\xF4ndrias e ret\xEDculo endoplasm\xE1tico."
+  - "Ambas apresentam n\xFAcleo organizado, mas s\xF3 as procari\xF3ticas possuem
+    mitoc\xF4ndrias."
+  - "Ambas apresentam organelas membranosas, mas s\xF3 as eucari\xF3ticas produzem
+    energia."
+  pergunta2: "A membrana plasm\xE1tica exerce papel essencial no funcionamento celular.
+    Entre suas fun\xE7\xF5es, destaca-se:"
   respostas2:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  pergunta3: pergunta3
+  - "Armazenar energia qu\xEDmica, substituindo a fun\xE7\xE3o da mitoc\xF4ndria."
+  - "Controlar a entrada e sa\xEDda de subst\xE2ncias, garantindo a homeostase."
+  - "Produzir prote\xEDnas, fun\xE7\xE3o exclusiva do ret\xEDculo endoplasm\xE1tico
+    rugoso."
+  - "Realizar a fotoss\xEDntese, fun\xE7\xE3o t\xEDpica de cloroplastos em c\xE9lulas
+    vegetais."
+  pergunta3: "As c\xE9lulas vegetais diferem das animais em alguns aspectos estruturais.
+    Uma dessas diferen\xE7as est\xE1 na presen\xE7a de:"
   respostas3:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  gabarito: 000000000100000002000000
+  - "Centr\xEDolos, respons\xE1veis pela divis\xE3o celular."
+  - "Lisossomos, respons\xE1veis pela digest\xE3o intracelular."
+  - "Membrana plasm\xE1tica, que regula trocas de subst\xE2ncias."
+  - "Parede celular e cloroplastos, respons\xE1veis pela sustenta\xE7\xE3o e fotoss\xEDntese."
+  gabarito: 010000000100000003000000
   quadro: {fileID: 1450267340}
   blockeado: 1
   quadroTrancado: {fileID: 187592189}
@@ -29042,7 +29104,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A)
+  m_text: D)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -31286,25 +31348,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controladorTela: {fileID: 514936268}
-  pergunta1: pergunta1
+  pergunta1: "O desenvolvimento da teoria evolutiva passou por diferentes explica\xE7\xF5es
+    ao longo da hist\xF3ria. O lamarckismo e o darwinismo apresentaram ideias distintas
+    sobre a origem da diversidade. Assinale a alternativa que melhor diferencia as
+    duas teorias."
   respostas1:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  pergunta2: pergunta2
+  - "Lamarck defendia a sele\xE7\xE3o natural, enquanto Darwin acreditava no uso
+    e desuso."
+  - "Darwin defendia a heran\xE7a de caracteres adquiridos, enquanto Lamarck prop\xF4s
+    a sele\xE7\xE3o natural."
+  - "Lamarck defendia o uso e desuso com heran\xE7a de caracteres adquiridos, enquanto
+    Darwin prop\xF4s a sele\xE7\xE3o natural como mecanismo principal da evolu\xE7\xE3o."
+  - "Ambos acreditavam na sele\xE7\xE3o natural como o \xFAnico processo respons\xE1vel
+    pela evolu\xE7\xE3o."
+  pergunta2: "A evolu\xE7\xE3o biol\xF3gica explica como os organismos se modificam
+    ao longo do tempo. Um dos principais conceitos darwinistas \xE9 a sele\xE7\xE3o
+    natural. Assinale a alternativa que melhor representa esse mecanismo."
   respostas2:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  pergunta3: pergunta3
+  - "Os indiv\xEDduos adquirem caracter\xEDsticas de acordo com suas necessidades
+    e transmitem aos descendentes."
+  - "Os organismos com caracter\xEDsticas vantajosas em determinado ambiente t\xEAm
+    maior chance de sobreviver e se reproduzir."
+  - "Todos os organismos de uma popula\xE7\xE3o evoluem igualmente ao longo do tempo."
+  - Os organismos mais fortes sempre sobrevivem, enquanto os mais fracos sempre desaparecem.
+  pergunta3: "As asas de morcegos e as asas de aves s\xE3o estruturas utilizadas
+    para o voo. Apesar da fun\xE7\xE3o semelhante, elas t\xEAm origens evolutivas
+    diferentes: as aves descendem de r\xE9pteis com membros anteriores adaptados,
+    enquanto os morcegos descendem de mam\xEDferos com membros anteriores adaptados
+    ao voo. Esse exemplo corresponde a:"
   respostas3:
-  - resposta1
-  - resposta2
-  - resposta3
-  - resposta4
-  gabarito: 000000000100000002000000
+  - "Estruturas an\xE1logas, pois t\xEAm a mesma fun\xE7\xE3o, mas origens evolutivas
+    diferentes."
+  - "Estruturas hom\xF3logas, pois t\xEAm mesma origem e fun\xE7\xE3o id\xEAntica."
+  - "Converg\xEAncia adaptativa, pois apresentam mesma origem, mas fun\xE7\xF5es
+    diferentes."
+  - "Diverg\xEAncia adaptativa, pois apresentam fun\xE7\xF5es iguais e origens id\xEAnticas."
+  gabarito: 020000000100000000000000
   quadro: {fileID: 1711771278}
   blockeado: 1
   quadroTrancado: {fileID: 340669933}
@@ -40253,7 +40332,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A)
+  m_text: B)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -40664,11 +40743,11 @@ Transform:
   m_GameObject: {fileID: 2014337977}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: -9.255706, y: 3.4784253, z: 12.515607}
+  m_LocalPosition: {x: -7.340998, y: 1.2370527, z: -1.8594027}
   m_LocalScale: {x: 3, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1391862034}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &2015093856
 GameObject:
@@ -46540,9 +46619,4 @@ SceneRoots:
   - {fileID: 559551259}
   - {fileID: 1272751923}
   - {fileID: 229226352}
-  - {fileID: 1198142475}
-  - {fileID: 1201331583}
-  - {fileID: 2014337981}
-  - {fileID: 630415481}
-  - {fileID: 446493301}
-  - {fileID: 1027089462}
+  - {fileID: 1391862034}
