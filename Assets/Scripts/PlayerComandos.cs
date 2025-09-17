@@ -83,7 +83,21 @@ public class PlayerComandos : MonoBehaviour
             {
                 comandoPegarUI.SetActive(false); // Desativa a UI de comando de pegar item se não estiver sobre um item
                 painelTextoNome.SetActive(false); // Desativa o painel de texto do nome do item
+            }
 
+            if (hit.collider.CompareTag("SlotCelula"))
+            {
+                if(hit.collider.GetComponent<SlotCelula>().dicaBanner != null)
+                {
+                    hit.collider.GetComponent<SlotCelula>().dicaBanner.SetActive(true); // Ativa o banner de dica se existir
+                }
+            }
+            else
+            {
+                for(int i = 0; i < leitorSenhaControlador.GetComponent<DicaCelua>().banners.Length; i++)
+                {
+                    leitorSenhaControlador.GetComponent<DicaCelua>().banners[i].SetActive(false); // Desativa todos os banners de dica
+                }
             }
         }
 
