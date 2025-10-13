@@ -24,10 +24,13 @@ public class PlayerComandos : MonoBehaviour
     public GameObject comandoInspecionarUI;
     public GameObject comandoSairInspecaoUI;
     public GameObject telaSenhaUI; // Referência à UI de tela de senha
+    public GameObject comandoLanternaUI; // Referência à UI de comando da lanterna
 
     // Referencia aos Audio Sources
     public AudioSource audioSourcePegarItem; // Fonte de áudio para pegar item
     public AudioSource audioSourceInventario; // Fonte de áudio para abrir inventário
+    public AudioSource audioInpecionar; // Fonte de áudio para inspecionar 
+    public AudioSource audioSairInspecionar; // Fonte de áudio para sair da inspeção
 
     // Referencia ao computador para a ação de inspecionalo
     public GameObject computador; // Referência ao computador para interação
@@ -149,15 +152,18 @@ public class PlayerComandos : MonoBehaviour
                 else if (hit.collider.CompareTag("Computador"))
                 {
                     InspecionarComputador(); // Chama o método para inspecionar o computador
+                    audioInpecionar.Play(); // Toca o som de inspecionar
                 }
                 else if (hit.collider.CompareTag("LeitorSenha"))
                 {
                     leitorSenhaControlador.GetComponent<LeitorSenhaControler>().Iniciar(); // Inicia a interação com o leitor de senha
+                    audioInpecionar.Play(); // Toca o som de inspecionar
                 }
                 else if (hit.collider.CompareTag("Cadeado") && !hit.collider.GetComponent<QuadroDesafiosControlador>().blockeado)
                 {
                     hit.collider.GetComponent<QuadroDesafiosControlador>().IniciarDesafio(); // Chama o método de interação do cadeado
                     menuAberto = true; // Marca o menu como aberto
+                    audioInpecionar.Play(); // Toca o som de inspecionar
                 }
                 else if (hit.collider.CompareTag("Interrupitor"))
                 {
@@ -167,6 +173,7 @@ public class PlayerComandos : MonoBehaviour
                 {
                     Debug.Log("Iniciando cofre...");
                     leitorSenhaControlador.GetComponent<CofreSenhaControlador>().iniciar(); // Chama o método de iniciar do cofre
+                    audioInpecionar.Play(); // Toca o som de inspecionar
                 }
             }
         }
@@ -189,6 +196,7 @@ public class PlayerComandos : MonoBehaviour
                 inventarioAberto = false; // Marca o inventário como fechado
                 mira.SetActive(true); // Ativa a mira quando o inventário é fechado
                 comandoInventarioUI.SetActive(true);
+                comandoLanternaUI.SetActive(true);
             }
             else
             {
@@ -198,6 +206,7 @@ public class PlayerComandos : MonoBehaviour
                 inventarioAberto = true; // Marca o inventário como aberto
                 mira.SetActive(false);
                 comandoInventarioUI.SetActive(false);
+                comandoLanternaUI.SetActive(false);
             }
         }
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -230,6 +239,7 @@ public class PlayerComandos : MonoBehaviour
                 comandoInventarioUI.SetActive(true); // Reativa o comando de inventário
                 mira.SetActive(true); // Reativa a mira
                 comandoSairInspecaoUI.SetActive(false); // Desativa o comando de sair da inspeção
+                audioSairInspecionar.Play(); // Toca o som de sair da inspeção
             }
         }
     }

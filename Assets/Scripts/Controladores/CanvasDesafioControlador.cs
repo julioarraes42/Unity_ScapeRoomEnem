@@ -19,6 +19,10 @@ public class CanvasDesafioControlador : MonoBehaviour
     // Referencia ao quadro de desafios
     public GameObject quadro;
 
+    // Referencia aos sons de acerto e erro
+    public AudioSource somAcerto;
+    public AudioSource somErro;
+
     public void IniciarDesafio(string pergunta1, string[] resposta1, int respostaCorreta1,
         string pergunta2, string[] resposta2, int respostaCorreta2, 
         string pergunta3, string[] resposta3, int respostaCorreta3,
@@ -76,15 +80,18 @@ public class CanvasDesafioControlador : MonoBehaviour
             if (perguntaAtual < 3)
             {
                 AtualizarPergunta();
+                somAcerto.Play();
             }
             else
             {
                 FecharDesafio(true);
+                somAcerto.Play();
             }
 
         } else
         {
             FecharDesafio(false);
+            somErro.Play();
         }
     }
 
