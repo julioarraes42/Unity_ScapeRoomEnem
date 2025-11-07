@@ -25,6 +25,7 @@ public class PlayerComandos : MonoBehaviour
     public GameObject comandoSairInspecaoUI;
     public GameObject telaSenhaUI; // Referência à UI de tela de senha
     public GameObject comandoLanternaUI; // Referência à UI de comando da lanterna
+    public GameObject telaBiblioteca; // Referência à UI da tela da biblioteca
 
     // Referencia aos Audio Sources
     public AudioSource audioSourcePegarItem; // Fonte de áudio para pegar item
@@ -39,6 +40,7 @@ public class PlayerComandos : MonoBehaviour
 
     // Referência aos Controladores
     public GameObject leitorSenhaControlador; // Controlador do leitor de senha
+    public GameObject bibliotecaControler; // Controlador da biblioteca
 
     void Start()
     {
@@ -106,11 +108,12 @@ public class PlayerComandos : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if ((hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha")) && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
+            if ((hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha") || hit.collider.CompareTag("Biblioteca"))
+                && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
             {
                 comandoInspecionarUI.SetActive(true); // Ativa a UI de comando de inspecionar
             }
-            else if ((!(hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha")) && comandoInspecionarUI.activeSelf) || menuAberto)
+            else if ((!(hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha") || hit.collider.CompareTag("Biblioteca")) && comandoInspecionarUI.activeSelf) || menuAberto)
             {
                 comandoInspecionarUI.SetActive(false); // Desativa a UI de comando de inspecionar se não estiver sobre um slot de célula
             }
@@ -173,6 +176,14 @@ public class PlayerComandos : MonoBehaviour
                 {
                     Debug.Log("Iniciando cofre...");
                     leitorSenhaControlador.GetComponent<CofreSenhaControlador>().iniciar(); // Chama o método de iniciar do cofre
+                    audioInpecionar.Play(); // Toca o som de inspecionar
+                }
+                else if (hit.collider.CompareTag("Biblioteca"))
+                {
+                    telaBiblioteca.SetActive(true); // Ativa a UI da tela da biblioteca
+                    bibliotecaControler.GetComponent<BibliotecaControler>().AbrirBiblioteca(); // Chama o método para abrir a biblioteca
+                    Cursor.lockState = CursorLockMode.None; // Libera o cursor
+                    menuAberto = true; // Marca o menu como aberto
                     audioInpecionar.Play(); // Toca o som de inspecionar
                 }
             }

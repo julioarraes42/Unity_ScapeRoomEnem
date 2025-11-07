@@ -16,6 +16,7 @@ TagManager:
   - Quadro
   - Cofre
   - PortaFinal
+  - Biblioteca
   layers:
   - Default
   - TransparentFX
