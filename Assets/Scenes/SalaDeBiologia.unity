@@ -30156,6 +30156,8 @@ MonoBehaviour:
   - {fileID: 948107835}
   - {fileID: 565510812}
   livroAtual: -1
+  bibliotecaaberta: 0
+  hudbotao: {fileID: 1432675464}
 --- !u!4 &973990586
 Transform:
   m_ObjectHideFlags: 0

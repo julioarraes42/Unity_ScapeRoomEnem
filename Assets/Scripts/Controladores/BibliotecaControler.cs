@@ -6,15 +6,19 @@ public class BibliotecaControler : MonoBehaviour
     public GameObject[] livrosPanel; // Paineis dos livros
     public GameObject[] HudPaineis; // Paineis da HUD
     public int livroAtual = -1; // Índice do livro atualmente aberto
-
+    public bool bibliotecaaberta = false;
+    public GameObject hudbotao; // Botão da HUD para sair da biblioteca
 
     public void AbrirBiblioteca()
     {
         bibliotecaPanel.SetActive(true);
+        bibliotecaaberta = true;
         foreach (GameObject painel in HudPaineis)
         {
             painel.SetActive(false);
         }
+
+        hudbotao.SetActive(true);
     }
 
     public void AbrirLivro(int livro)
@@ -39,6 +43,12 @@ public class BibliotecaControler : MonoBehaviour
             {
                 painel.SetActive(true);
             }
+
+            bibliotecaaberta = false;
+
+            Cursor.lockState = CursorLockMode.Locked;
+
+            hudbotao.SetActive(false);
         }
     }
 }

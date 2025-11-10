@@ -131,7 +131,6 @@ public class PlayerComandos : MonoBehaviour
             }
         }
 
-
         // Interaçoes apertando E
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         if (Input.GetKeyDown(KeyCode.E) && !inventarioAberto)
@@ -178,7 +177,7 @@ public class PlayerComandos : MonoBehaviour
                     leitorSenhaControlador.GetComponent<CofreSenhaControlador>().iniciar(); // Chama o método de iniciar do cofre
                     audioInpecionar.Play(); // Toca o som de inspecionar
                 }
-                else if (hit.collider.CompareTag("Biblioteca"))
+                else if (hit.collider.CompareTag("Biblioteca") && !bibliotecaControler.GetComponent<BibliotecaControler>().bibliotecaaberta)
                 {
                     telaBiblioteca.SetActive(true); // Ativa a UI da tela da biblioteca
                     bibliotecaControler.GetComponent<BibliotecaControler>().AbrirBiblioteca(); // Chama o método para abrir a biblioteca
@@ -186,10 +185,17 @@ public class PlayerComandos : MonoBehaviour
                     menuAberto = true; // Marca o menu como aberto
                     audioInpecionar.Play(); // Toca o som de inspecionar
                 }
+                else if(bibliotecaControler.GetComponent<BibliotecaControler>().bibliotecaaberta)
+                {
+                    bibliotecaControler.GetComponent<BibliotecaControler>().Fechar(); // Fecha a biblioteca se já estiver aberta
+                    
+                    if (!bibliotecaControler.GetComponent<BibliotecaControler>().bibliotecaaberta)
+                    {
+                        menuAberto = false;
+                    }
+                }
             }
         }
-
-
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
