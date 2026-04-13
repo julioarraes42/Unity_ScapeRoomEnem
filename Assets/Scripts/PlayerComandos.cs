@@ -105,18 +105,27 @@ public class PlayerComandos : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            comandoPegarUI.SetActive(false);
+            painelTextoNome.SetActive(false);
+        }
 
         if (Physics.Raycast(ray, out hit))
         {
-            if ((hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha") || hit.collider.CompareTag("Biblioteca"))
+            if ((hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha") || hit.collider.CompareTag("Biblioteca") || hit.collider.CompareTag("BonecoAnatomia"))
                 && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
             {
                 comandoInspecionarUI.SetActive(true); // Ativa a UI de comando de inspecionar
             }
-            else if ((!(hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha") || hit.collider.CompareTag("Biblioteca")) && comandoInspecionarUI.activeSelf) || menuAberto)
+            else if ((!(hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha") || hit.collider.CompareTag("Biblioteca") || hit.collider.CompareTag("BonecoAnatomia")) && comandoInspecionarUI.activeSelf) || menuAberto)
             {
                 comandoInspecionarUI.SetActive(false); // Desativa a UI de comando de inspecionar se não estiver sobre um slot de célula
             }
+        }
+        else
+        {
+            comandoInspecionarUI.SetActive(false);
         }
 
         if (Physics.Raycast(ray, out hit))
@@ -193,6 +202,10 @@ public class PlayerComandos : MonoBehaviour
                     {
                         menuAberto = false;
                     }
+                }
+                else if (hit.collider.CompareTag("BonecoAnatomia"))
+                {
+                    
                 }
             }
         }

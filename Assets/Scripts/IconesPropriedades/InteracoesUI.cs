@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -119,6 +120,17 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 {
                     animacaoControlador.GetComponent<PortaFinalControlador>().Abrir();
                     player.GetComponent<Inventario>().RemoverItem(itemSegurado);
+                }
+            }
+            else if (hit.collider.CompareTag("BonecoAnatomia"))
+            {
+                if (puzzleControlador.GetComponent<PuzzleAnatomiaControler>().AdicionarOrgao(itemSegurado))
+                {
+                    player.GetComponent<Inventario>().RemoverItem(itemSegurado); // Remove o item do inventário do jogador
+                }
+                else
+                {
+                    audioLargarItemErrado.Play(); // Toca o áudio de erro ao largar o item em local errado
                 }
             }
             else

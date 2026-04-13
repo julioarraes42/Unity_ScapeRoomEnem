@@ -17,6 +17,7 @@ TagManager:
   - Cofre
   - PortaFinal
   - Biblioteca
+  - BonecoAnatomia
   layers:
   - Default
   - TransparentFX
