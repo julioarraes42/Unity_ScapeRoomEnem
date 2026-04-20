@@ -7,6 +7,8 @@ public class PuzzleCelulaControlador : MonoBehaviour
     public GameObject quadro2;
     public GameObject quadro3;
     public GameObject quadro4;
+    public GameObject quadro5;
+    public GameObject quadro6;
 
     public void AdicionarContagem()
     {
@@ -16,7 +18,6 @@ public class PuzzleCelulaControlador : MonoBehaviour
             quadro1.GetComponent<QuadroDesafiosControlador>().Destrancar();
         }
     }
-
     public void AbrirQuadro2()
     {
         quadro2.GetComponent<QuadroDesafiosControlador>().Destrancar();
@@ -30,7 +31,15 @@ public class PuzzleCelulaControlador : MonoBehaviour
     {
         quadro4.GetComponent<QuadroDesafiosControlador>().Destrancar();
     }
-
-
-
+    public void AbrirQuadro5()
+    {
+        quadro4.GetComponent<QuadroDesafiosControlador>().Destrancar();
     }
+    public void AbrirQuadro6()
+    {
+        quadro4.GetComponent<QuadroDesafiosControlador>().Destrancar();
+    }
+
+
+
+}

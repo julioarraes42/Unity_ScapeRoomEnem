@@ -41,6 +41,7 @@ public class PlayerComandos : MonoBehaviour
     // Referência aos Controladores
     public GameObject leitorSenhaControlador; // Controlador do leitor de senha
     public GameObject bibliotecaControler; // Controlador da biblioteca
+    public GameObject puzzleControler;
 
     void Start()
     {
@@ -205,7 +206,7 @@ public class PlayerComandos : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("BonecoAnatomia"))
                 {
-                    
+                    puzzleControler.GetComponent<PuzzleAnatomiaControler>().Interacao();
                 }
             }
         }
