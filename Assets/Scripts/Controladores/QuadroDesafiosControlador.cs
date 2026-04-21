@@ -19,6 +19,7 @@ public class QuadroDesafiosControlador : MonoBehaviour
     public GameObject quadroTrancado;
     public GameObject quadroDestrancado;
     public GameObject quadroSimbolo;
+    public GameObject quadroEfeito;
 
     public void IniciarDesafio()
     {
@@ -41,6 +42,7 @@ public class QuadroDesafiosControlador : MonoBehaviour
     {
         quadroDestrancado.SetActive(false);
         quadroSimbolo.SetActive(true);
+        quadroEfeito.SetActive(true);
         blockeado = true;
         //auto destruir
         Destroy(gameObject);

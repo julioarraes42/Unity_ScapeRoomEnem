@@ -23,5 +23,10 @@ public class Item : MonoBehaviour
         Destroy(gameObject); // Destroi o objeto do jogo
     }
 
+    public void Desativar()
+    {
+        gameObject.SetActive(false);
+    }
+
     // Metodo equal para comparar dois objetos Item
 }

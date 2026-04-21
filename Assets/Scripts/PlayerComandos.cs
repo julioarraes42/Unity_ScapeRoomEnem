@@ -114,7 +114,11 @@ public class PlayerComandos : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if ((hit.collider.CompareTag("Computador") || hit.collider.CompareTag("Cadeado") || hit.collider.CompareTag("LeitorSenha") || hit.collider.CompareTag("Biblioteca") || hit.collider.CompareTag("BonecoAnatomia"))
+            if ((hit.collider.CompareTag("Computador") 
+                || hit.collider.CompareTag("Cadeado") 
+                || hit.collider.CompareTag("LeitorSenha")
+                || hit.collider.CompareTag("Biblioteca") 
+                || (hit.collider.CompareTag("BonecoAnatomia") && (puzzleControler.GetComponent<PuzzleAnatomiaControler>().interagivel)))
                 && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
             {
                 comandoInspecionarUI.SetActive(true); // Ativa a UI de comando de inspecionar
@@ -141,9 +145,9 @@ public class PlayerComandos : MonoBehaviour
             }
         }
 
-        // Interaçoes apertando E
+        // Interaçoes apertando o Botão esquedo do mouse
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        if (Input.GetKeyDown(KeyCode.E) && !inventarioAberto)
+        if (Input.GetMouseButtonDown(0) && !inventarioAberto && !menuAberto)
         {
             if (leitorSenhaControlador.GetComponent<LeitorSenhaControler>().painelAtivo)
             {
@@ -204,7 +208,7 @@ public class PlayerComandos : MonoBehaviour
                         menuAberto = false;
                     }
                 }
-                else if (hit.collider.CompareTag("BonecoAnatomia"))
+                else if (hit.collider.CompareTag("BonecoAnatomia") && (puzzleControler.GetComponent<PuzzleAnatomiaControler>().interagivel))
                 {
                     puzzleControler.GetComponent<PuzzleAnatomiaControler>().Interacao();
                 }

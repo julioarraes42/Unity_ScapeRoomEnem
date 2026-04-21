@@ -130,6 +130,7 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 }
                 else
                 {
+                    player.GetComponent<Inventario>().RemoverItem(itemSegurado);
                     audioLargarItemErrado.Play(); // Toca o áudio de erro ao largar o item em local errado
                 }
             }

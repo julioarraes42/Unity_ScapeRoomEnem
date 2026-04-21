@@ -30,7 +30,13 @@ public class Inventario : MonoBehaviour
         if (item != null && !items.Contains(item))
         {
             items.Add(item);
-            item.destruir(); // Destroi o objeto do jogo após adicioná-lo ao inventário
+            if(item.codigo == "1")
+            {
+                item.destruir(); // Destroi o objeto do jogo após adicioná-lo ao inventário
+            }else if(item.codigo == "2")
+            {
+                item.Desativar();
+            }
             Debug.Log($"Item {item.nome} adicionado ao inventário.");
             iconesSlots[items.Count - 1].sprite = item.icone; // Atualiza o ícone do slot correspondente no inventário
             iconesSlots[items.Count - 1].color = Color.white; // Define a cor do ícone para visível
