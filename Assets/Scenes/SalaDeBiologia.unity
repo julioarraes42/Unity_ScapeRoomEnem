@@ -18886,7 +18886,8 @@ MonoBehaviour:
   - {fileID: 90497140}
   - {fileID: 597786756}
   - {fileID: 1956622923}
-  senha: 1302
+  - {fileID: 1862886498}
+  senha: 13021
   player: {fileID: 269738790}
   aberto: 0
   cofre: {fileID: 919132148046418549}
@@ -34264,6 +34265,18 @@ PrefabInstance:
     - target: {fileID: 13339252781934907, guid: e54522bca2adbd24f8270f8e4ea94a5c, type: 3}
       propertyPath: m_Name
       value: DigitoCofre (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318746524144335376, guid: e54522bca2adbd24f8270f8e4ea94a5c, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318746524144335376, guid: e54522bca2adbd24f8270f8e4ea94a5c, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318746524144335376, guid: e54522bca2adbd24f8270f8e4ea94a5c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6775170233979381371, guid: e54522bca2adbd24f8270f8e4ea94a5c, type: 3}
       propertyPath: m_Pivot.x
@@ -62387,6 +62400,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1862886498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 13339252781934907, guid: e54522bca2adbd24f8270f8e4ea94a5c, type: 3}
+  m_PrefabInstance: {fileID: 1081797941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1869366453 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2875677854808684420, guid: b5a7fbdc2ef5c1d43bb5e76330474a66, type: 3}
