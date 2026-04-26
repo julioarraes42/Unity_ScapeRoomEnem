@@ -14,7 +14,20 @@ public class LeitorSenhaControler : MonoBehaviour
 
     public GameObject puzzleControler;
 
-    public GameObject[] paineis; // Referencia paineis que serão ligados/desligados
+    public GameObject[] paineis; // Referencia paineis que serão desligados
+    public GameObject[] paineisLigados; // Referencia paineis que serão ligados
+
+
+    private void Update()
+    {
+        if (painelAtivo)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Desativar();
+            }
+        }
+    }
 
     public void Adicionar(int valor)
     {
@@ -64,6 +77,11 @@ public class LeitorSenhaControler : MonoBehaviour
         {
             paineis[i].SetActive(false);
         }
+
+        for (int i = 0; i < paineisLigados.Length; i++)
+        {
+            paineisLigados[i].SetActive(true);
+        }
         painelAtivo = true;
 
     }
@@ -71,13 +89,17 @@ public class LeitorSenhaControler : MonoBehaviour
     public void Desativar()
     {
         painelSenha.SetActive(false);
-        puzzleControler.GetComponent<PuzzleCelulaControlador>().AbrirQuadro4();
         player.GetComponent<PlayerComandos>().menuAberto = false; // Fecha o menu do jogador
         Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
 
         for (int i = 0; i < paineis.Length; i++)
         {
             paineis[i].SetActive(true);
+        }
+
+        for (int i = 0; i < paineisLigados.Length; i++)
+        {
+            paineisLigados[i].SetActive(false);
         }
 
         painelAtivo = false;

@@ -8,6 +8,18 @@ public class BibliotecaControler : MonoBehaviour
     public int livroAtual = -1; // Índice do livro atualmente aberto
     public bool bibliotecaaberta = false;
     public GameObject hudbotao; // Botão da HUD para sair da biblioteca
+    public PlayerComandos playerComandos;
+
+    private void Update()
+    {
+        if (bibliotecaaberta)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Fechar();
+            }
+        }
+    }
 
     public void AbrirBiblioteca()
     {
@@ -47,6 +59,10 @@ public class BibliotecaControler : MonoBehaviour
             bibliotecaaberta = false;
 
             Cursor.lockState = CursorLockMode.Locked;
+
+            Debug.Log("Fechado Pelo caminho Errado");
+
+            playerComandos.menuAberto = false;
 
             hudbotao.SetActive(false);
         }

@@ -8,6 +8,18 @@ public class ComputadorControler : MonoBehaviour
     public GameObject telaErro;
 
     public GameObject puzzleControlador; // Referência ao controlador do puzzle
+    public PlayerComandos playerComandos;
+
+    private void Update()
+    {
+        if (playerComandos.inspecionandoComputador)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                playerComandos.InspecionarComputador();
+            }
+        }
+    }
 
     public void VerificarResultado()
     {

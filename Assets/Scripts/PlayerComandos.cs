@@ -35,7 +35,7 @@ public class PlayerComandos : MonoBehaviour
 
     // Referencia ao computador para a ação de inspecionalo
     public GameObject computador; // Referência ao computador para interação
-    private bool inspecionandoComputador = false; // Variável para controlar se está inspecionando o computador
+    public bool inspecionandoComputador = false; // Variável para controlar se está inspecionando o computador
     private Vector3 cameraPosicao; // Referência à posição da câmera para inspeção
 
     // Referência aos Controladores
@@ -114,21 +114,21 @@ public class PlayerComandos : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if ((hit.collider.CompareTag("Computador") 
-                || hit.collider.CompareTag("Cadeado") 
+            if ((hit.collider.CompareTag("Computador")
+                || hit.collider.CompareTag("Cadeado")
                 || hit.collider.CompareTag("LeitorSenha")
                 || hit.collider.CompareTag("Cofre")
-                || hit.collider.CompareTag("Biblioteca") 
+                || hit.collider.CompareTag("Biblioteca")
                 || (hit.collider.CompareTag("BonecoAnatomia") && (puzzleControler.GetComponent<PuzzleAnatomiaControler>().interagivel)))
                 && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
             {
                 comandoInspecionarUI.SetActive(true); // Ativa a UI de comando de inspecionar
             }
-            else if ((!(hit.collider.CompareTag("Computador") 
-                || hit.collider.CompareTag("Cadeado") 
+            else if ((!(hit.collider.CompareTag("Computador")
+                || hit.collider.CompareTag("Cadeado")
                 || hit.collider.CompareTag("LeitorSenha")
                 || hit.collider.CompareTag("Cofre")
-                || hit.collider.CompareTag("Biblioteca") 
+                || hit.collider.CompareTag("Biblioteca")
                 || hit.collider.CompareTag("BonecoAnatomia")) && comandoInspecionarUI.activeSelf) || menuAberto)
             {
                 comandoInspecionarUI.SetActive(false); // Desativa a UI de comando de inspecionar se não estiver sobre um slot de célula
@@ -261,6 +261,7 @@ public class PlayerComandos : MonoBehaviour
             {
                 // Se não está inspecionando, inicia a inspeção
                 comandoInventarioUI.SetActive(false); // Desativa o comando de inventário
+                comandoLanternaUI.SetActive(false);
                 mira.SetActive(false); // Desativa a mira
                 comandoSairInspecaoUI.SetActive(true); // Ativa o comando de sair da inspeção
                 cameraPosicao = mainCamera.transform.position; // Armazena a posição atual da câmera
@@ -278,6 +279,7 @@ public class PlayerComandos : MonoBehaviour
                 menuAberto = false; // Marca o menu como fechado
                 mainCamera.position = cameraPosicao; // Restaura a posição original da câmera
                 comandoInventarioUI.SetActive(true); // Reativa o comando de inventário
+                comandoLanternaUI.SetActive(true);
                 mira.SetActive(true); // Reativa a mira
                 comandoSairInspecaoUI.SetActive(false); // Desativa o comando de sair da inspeção
                 audioSairInspecionar.Play(); // Toca o som de sair da inspeção

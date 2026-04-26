@@ -7442,6 +7442,7 @@ MonoBehaviour:
   audioInpecionar: {fileID: 550281002}
   audioSairInspecionar: {fileID: 691815848}
   computador: {fileID: 8485173161996532097}
+  inspecionandoComputador: 0
   leitorSenhaControlador: {fileID: 514936268}
   bibliotecaControler: {fileID: 973990584}
   puzzleControler: {fileID: 1701192539}
@@ -8794,12 +8795,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1432675465}
   - {fileID: 1328609136}
   - {fileID: 805734294}
   - {fileID: 604272589}
   - {fileID: 1972228347}
   - {fileID: 948107836}
-  - {fileID: 1432675465}
   - {fileID: 517489941}
   - {fileID: 565510813}
   - {fileID: 746447095}
@@ -18828,6 +18829,9 @@ MonoBehaviour:
   paineis:
   - {fileID: 1328609135}
   - {fileID: 948107835}
+  - {fileID: 565510812}
+  paineisLigados:
+  - {fileID: 1432675464}
 --- !u!4 &514936270
 Transform:
   m_ObjectHideFlags: 0
@@ -18887,6 +18891,11 @@ MonoBehaviour:
   - {fileID: 597786756}
   - {fileID: 1956622923}
   - {fileID: 1862886498}
+  UIs:
+  - {fileID: 948107835}
+  - {fileID: 565510812}
+  UIsFechar:
+  - {fileID: 1432675464}
   senha: 13021
   player: {fileID: 269738790}
   aberto: 0
@@ -27938,6 +27947,7 @@ MonoBehaviour:
   telaImagem: {fileID: 2065225794}
   telaErro: {fileID: 2117899257}
   puzzleControlador: {fileID: 1701192539}
+  playerComandos: {fileID: 269738791}
 --- !u!1 &859380001
 GameObject:
   m_ObjectHideFlags: 0
@@ -31359,6 +31369,7 @@ MonoBehaviour:
   livroAtual: -1
   bibliotecaaberta: 0
   hudbotao: {fileID: 1432675464}
+  playerComandos: {fileID: 269738791}
 --- !u!4 &973990586
 Transform:
   m_ObjectHideFlags: 0
@@ -45610,7 +45621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 356.1, y: -192.5}
+  m_AnchoredPosition: {x: 356.1, y: -248}
   m_SizeDelta: {x: -621.6024, y: -407.6833}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432675466
