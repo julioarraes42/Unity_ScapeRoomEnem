@@ -18,6 +18,7 @@ TagManager:
   - PortaFinal
   - Biblioteca
   - BonecoAnatomia
+  - DNA
   layers:
   - Default
   - TransparentFX

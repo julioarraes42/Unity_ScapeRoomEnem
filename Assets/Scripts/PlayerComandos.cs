@@ -118,6 +118,7 @@ public class PlayerComandos : MonoBehaviour
                 || hit.collider.CompareTag("Cadeado")
                 || hit.collider.CompareTag("LeitorSenha")
                 || hit.collider.CompareTag("Cofre")
+                || hit.collider.CompareTag("DNA")
                 || hit.collider.CompareTag("Biblioteca")
                 || (hit.collider.CompareTag("BonecoAnatomia") && (puzzleControler.GetComponent<PuzzleAnatomiaControler>().interagivel)))
                 && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
@@ -128,6 +129,7 @@ public class PlayerComandos : MonoBehaviour
                 || hit.collider.CompareTag("Cadeado")
                 || hit.collider.CompareTag("LeitorSenha")
                 || hit.collider.CompareTag("Cofre")
+                || hit.collider.CompareTag("DNA")
                 || hit.collider.CompareTag("Biblioteca")
                 || hit.collider.CompareTag("BonecoAnatomia")) && comandoInspecionarUI.activeSelf) || menuAberto)
             {
@@ -204,6 +206,11 @@ public class PlayerComandos : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None; // Libera o cursor
                     menuAberto = true; // Marca o menu como aberto
                     audioInpecionar.Play(); // Toca o som de inspecionar
+                }
+                else if (hit.collider.CompareTag("DNA") && !puzzleControler.GetComponent<Puzzle6Controler>().ativo)
+                {
+                    audioInpecionar.Play(); // Toca o som de inspecionar
+                    puzzleControler.GetComponent<Puzzle6Controler>().ativar();
                 }
                 else if(bibliotecaControler.GetComponent<BibliotecaControler>().bibliotecaaberta)
                 {
