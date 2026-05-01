@@ -207,10 +207,10 @@ public class PlayerComandos : MonoBehaviour
                     menuAberto = true; // Marca o menu como aberto
                     audioInpecionar.Play(); // Toca o som de inspecionar
                 }
-                else if (hit.collider.CompareTag("DNA") && !puzzleControler.GetComponent<Puzzle6Controler>().ativo)
+                else if (hit.collider.CompareTag("DNA") && !puzzleControler.GetComponent<Puzzle5Controler>().ativo)
                 {
                     audioInpecionar.Play(); // Toca o som de inspecionar
-                    puzzleControler.GetComponent<Puzzle6Controler>().ativar();
+                    puzzleControler.GetComponent<Puzzle5Controler>().ativar();
                 }
                 else if(bibliotecaControler.GetComponent<BibliotecaControler>().bibliotecaaberta)
                 {
