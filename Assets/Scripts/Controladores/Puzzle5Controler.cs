@@ -21,7 +21,21 @@ public class Puzzle5Controler : MonoBehaviour
     [SerializeField] private int heigtMax = 300;
     [SerializeField] private Image termometro;
 
+    //Objetos para controlar os indicadores
+    [SerializeField] private GameObject indicadorAumento;
+    [SerializeField] private GameObject indicadorReducao;
+    [SerializeField] private GameObject[] indicadoresObjetivo;
+    private int[] valoresIndicadores = { 95, 55, 72 };
+    [SerializeField] private int ordemIndicador = 0;
+ 
 
+    private void Start()
+    {
+        valorTermometro.color = Color.gray;
+
+        indicadorReducao.SetActive(false);
+        indicadorAumento.SetActive(false);
+    }
 
     private void Update()
     {
@@ -45,6 +59,9 @@ public class Puzzle5Controler : MonoBehaviour
         {
             if (temperaturaAtual < temperatura)
             {
+                indicadorAumento.SetActive(true);
+                valorTermometro.color = Color.red;
+
                 if ((temperatura - temperaturaAtual) <= valorMudado)
                 {
                     temperaturaAtual = temperatura;
@@ -55,6 +72,11 @@ public class Puzzle5Controler : MonoBehaviour
                 }
             } else
             {
+
+                indicadorReducao.SetActive(true);
+                valorTermometro.color = Color.blue;
+
+
                 if ((temperaturaAtual - temperatura) <= valorMudado)
                 {
                     temperaturaAtual = temperatura;
@@ -67,6 +89,29 @@ public class Puzzle5Controler : MonoBehaviour
 
         } else
         {
+            indicadorReducao.SetActive(false);
+            indicadorAumento.SetActive(false);
+            valorTermometro.color = Color.gray;
+
+            if(temperaturaAtual == valoresIndicadores[ordemIndicador])
+            {
+                indicadoresObjetivo[ordemIndicador].SetActive(true);
+                ordemIndicador++;
+            }
+            else
+            {
+                for(int i = 0; i < indicadoresObjetivo.Length; i++)
+                {
+                    indicadoresObjetivo[i].SetActive(false);
+                }
+                ordemIndicador = 0;
+            }
+
+            if(ordemIndicador == 3)
+            {
+                Debug.Log("Concluido a primeira etapa");
+            }
+
             CancelInvoke("Processo");
         }
     }
