@@ -35,7 +35,12 @@ public class InteracoesUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnBeginDrag(PointerEventData eventData)
     {
         posicaoInicial = rectTransform.anchoredPosition; // Guarda a posição inicial do objeto
-        itemSegurado = GetComponent<Slot>().nome; // Obtém o componente Item do objeto arrastado
+
+        if (GetComponent<Slot>() != null)
+        {
+            itemSegurado = GetComponent<Slot>().nome;
+        } // Obtém o componente Item do objeto arrastado
+
         audioSegurarItem.Play(); // Toca o áudio de segurar item
     }
 
