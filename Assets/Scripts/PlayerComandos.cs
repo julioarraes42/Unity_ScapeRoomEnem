@@ -95,7 +95,14 @@ public class PlayerComandos : MonoBehaviour
             {
                 if(hit.collider.GetComponent<SlotCelula>().dicaBanner != null)
                 {
-                    hit.collider.GetComponent<SlotCelula>().dicaBanner.SetActive(true); // Ativa o banner de dica se existir
+                    if (hit.collider.GetComponent<SlotCelula>().dicaBanner.activeSelf == false)
+                    {
+                        for (int i = 0; i < leitorSenhaControlador.GetComponent<DicaCelua>().banners.Length; i++)
+                        {
+                            leitorSenhaControlador.GetComponent<DicaCelua>().banners[i].SetActive(false); // Desativa todos os banners de dica
+                        }
+                        hit.collider.GetComponent<SlotCelula>().dicaBanner.SetActive(true); // Ativa o banner de dica se existir
+                    } 
                 }
             }
             else
