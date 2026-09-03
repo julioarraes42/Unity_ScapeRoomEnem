@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Granito1
+  m_Name: Granito4
   m_Shader: {fileID: -6465566751694194690, guid: 34720b9312cec2e4e91625375a7fe0e3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -41,13 +41,13 @@ Material:
     - _Metalic: 0.4
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 10000
+    - _Scale: 20000
     - _power: 2
     m_Colors:
-    - _Color: {r: 2, g: 2, b: 2, a: 1}
+    - _Color: {r: 1.9144524, g: 1.9144524, b: 1.9144524, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &3822613517625978782
+--- !u!114 &3645004309242200414
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
