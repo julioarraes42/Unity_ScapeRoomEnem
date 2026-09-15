@@ -9,165 +9,81 @@ public class Puzzle5Controler : MonoBehaviour
     [SerializeField] private GameObject[] IconesDesativados;
     [SerializeField] private GameObject[] IconesAtivados;
     [SerializeField] private PlayerComandos playerComandos;
+    public Animator animator;
+    public int etapaAtual = 0;
     public bool ativo = false;
-
-    [SerializeField] private int temperatura = 30;
-    [SerializeField] private int temperaturaAtual = 30;
-    [SerializeField] private bool emProcessamento = false;
-    [SerializeField] private TMP_InputField valorDeTemperatura;
-    [SerializeField] private TextMeshProUGUI valorTermometro;
-    [SerializeField] private int valorMudado = 3;
-    [SerializeField] private int intervaloDeMudança = 1;
-    [SerializeField] private int heigtMax = 300;
-    [SerializeField] private Image termometro;
-
-    //Objetos para controlar os indicadores
-    [SerializeField] private GameObject indicadorAumento;
-    [SerializeField] private GameObject indicadorReducao;
-    [SerializeField] private GameObject[] indicadoresObjetivo;
-    private int[] valoresIndicadores = { 95, 55, 72 };
-    [SerializeField] private int ordemIndicador = 0;
- 
+    public bool animacaoAtiva = false;
+    public float tempo = 0f;
+    [SerializeField] private float velocidadeAnimacao = 0f;
 
     private void Start()
     {
-        valorTermometro.color = Color.gray;
-
-        indicadorReducao.SetActive(false);
-        indicadorAumento.SetActive(false);
+        animator.Play("DNACanvas", 0, 0f);
+        velocidadeAnimacao = 0f;
     }
 
     private void Update()
     {
-        if (ativo)
+        animator.speed = velocidadeAnimacao;
+
+        AnimatorStateInfo estado = animator.GetCurrentAnimatorStateInfo(0);
+
+        tempo = estado.normalizedTime % 1f;
+
+        if (!animacaoAtiva)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                ativar();
-            }
+            velocidadeAnimacao = 0f;
+        }
+        else if (etapaAtual == 0 && animacaoAtiva && tempo > 0.99f)
+        {
+            animator.Play("DNACanvas", 0, 0f);
+            animacaoAtiva = false;
         }
 
-        valorTermometro.text = temperaturaAtual.ToString();
-
-        termometro.rectTransform.localScale = new Vector2(termometro.rectTransform.localScale.x, temperaturaAtual);
-
-    }
-
-    private void Processo()
-    {
-        if (temperaturaAtual != temperatura)
+        if (etapaAtual == 1 && tempo >= 0.25f)
         {
-            if (temperaturaAtual < temperatura)
-            {
-                indicadorAumento.SetActive(true);
-                valorTermometro.color = Color.red;
-
-                if ((temperatura - temperaturaAtual) <= valorMudado)
-                {
-                    temperaturaAtual = temperatura;
-                }
-                else
-                {
-                    temperaturaAtual += valorMudado;
-                }
-            } else
-            {
-
-                indicadorReducao.SetActive(true);
-                valorTermometro.color = Color.blue;
-
-
-                if ((temperaturaAtual - temperatura) <= valorMudado)
-                {
-                    temperaturaAtual = temperatura;
-                }
-                else
-                {
-                    temperaturaAtual -= valorMudado;
-                }
-            }
-
-        } else
-        {
-            indicadorReducao.SetActive(false);
-            indicadorAumento.SetActive(false);
-            valorTermometro.color = Color.gray;
-
-            if(temperaturaAtual == valoresIndicadores[ordemIndicador])
-            {
-                indicadoresObjetivo[ordemIndicador].SetActive(true);
-                ordemIndicador++;
-            }
-            else
-            {
-                for(int i = 0; i < indicadoresObjetivo.Length; i++)
-                {
-                    indicadoresObjetivo[i].SetActive(false);
-                }
-                ordemIndicador = 0;
-            }
-
-            if(ordemIndicador == 3)
-            {
-                Debug.Log("Concluido a primeira etapa");
-            }
-
-            CancelInvoke("Processo");
+            Debug.Log("Tempo: " + tempo);
+            Debug.Log("Passei por aqui");
+            velocidadeAnimacao = 0f;
         }
+
+        if (etapaAtual == 2 && tempo >= 0.625f)
+        {
+            velocidadeAnimacao = 0f;
+        }
+
     }
 
-    public void botaoAtivacao()
-    {
-        Debug.Log("/"+ valorDeTemperatura.text+ "/");
-
-        temperatura = int.Parse(valorDeTemperatura.text);
-
-        InvokeRepeating("Processo", intervaloDeMudança, intervaloDeMudança);
-    }
-
-    public void ativar()
+    public void botao(int valor)
     {
 
-        if (!ativo)
+        if (etapaAtual == valor)
         {
-            tela.SetActive(true);
-
-            for (int i = 0; i < IconesDesativados.Length; i++)
+            if (etapaAtual == 0)
             {
-                IconesDesativados[i].SetActive(false);
+                tempo = 0f;
+                animator.Play("DNACanvas", 0, 0f);
+                Debug.Log(tempo);
+                animacaoAtiva = true;
+                etapaAtual++;
+                velocidadeAnimacao = 1f;
             }
-
-            for (int i = 0; i < IconesAtivados.Length; i++)
+            else if (etapaAtual == 1)
             {
-                IconesAtivados[i].SetActive(true);
+                tempo = 0.375f;
+                animator.Play("DNACanvas", 0, 0.375f);
+                Debug.Log(tempo);
+                velocidadeAnimacao = 1f;
+                etapaAtual++;
             }
-
-            playerComandos.menuAberto = true;
-
-            Cursor.lockState = CursorLockMode.None;
-
-            ativo = true;
-        }
-        else
-        {
-            tela.SetActive(false);
-
-            for (int i = 0; i < IconesDesativados.Length; i++)
+            else if (etapaAtual == 2)
             {
-                IconesDesativados[i].SetActive(true);
+                etapaAtual = 0;
+                velocidadeAnimacao = 1f;
+                tempo = 0.75f;
+                animator.Play("DNACanvas", 0, 0.75f);
+                Debug.Log(tempo);
             }
-
-            for (int i = 0; i < IconesAtivados.Length; i++)
-            {
-                IconesAtivados[i].SetActive(false);
-            }
-
-            playerComandos.menuAberto = false;
-
-            Cursor.lockState = CursorLockMode.Locked;
-
-            ativo = false;
         }
     }
-
 }
