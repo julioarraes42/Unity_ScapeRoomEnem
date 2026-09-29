@@ -40,7 +40,7 @@ public class Puzzle5Controler : MonoBehaviour
             animacaoAtiva = false;
         }
 
-        if (etapaAtual == 1 && tempo >= 0.25f)
+        if (etapaAtual == 1 && tempo >= 0.25f && animacaoAtiva == true)
         {
             Debug.Log("Tempo: " + tempo);
             Debug.Log("Passei por aqui");
