@@ -9,12 +9,15 @@ public class Puzzle5Controler : MonoBehaviour
     [SerializeField] private GameObject[] IconesDesativados;
     [SerializeField] private GameObject[] IconesAtivados;
     [SerializeField] private PlayerComandos playerComandos;
+
+    [SerializeField] private float velocidadeAnimacao = 0f;
+
     public Animator animator;
+
     public int etapaAtual = 0;
     public bool ativo = false;
     public bool animacaoAtiva = false;
     public float tempo = 0f;
-    [SerializeField] private float velocidadeAnimacao = 0f;
 
     private void Start()
     {
@@ -39,15 +42,11 @@ public class Puzzle5Controler : MonoBehaviour
             animator.Play("DNACanvas", 0, 0f);
             animacaoAtiva = false;
         }
-
-        if (etapaAtual == 1 && tempo >= 0.25f && animacaoAtiva == true)
+        else if (etapaAtual == 1 && tempo >= 0.25f && tempo <= 0.625f && animacaoAtiva == true)
         {
-            Debug.Log("Tempo: " + tempo);
-            Debug.Log("Passei por aqui");
             velocidadeAnimacao = 0f;
         }
-
-        if (etapaAtual == 2 && tempo >= 0.625f)
+        else if (etapaAtual == 2 && tempo >= 0.625f)
         {
             velocidadeAnimacao = 0f;
         }
@@ -63,7 +62,6 @@ public class Puzzle5Controler : MonoBehaviour
             {
                 tempo = 0f;
                 animator.Play("DNACanvas", 0, 0f);
-                Debug.Log(tempo);
                 animacaoAtiva = true;
                 etapaAtual++;
                 velocidadeAnimacao = 1f;
@@ -72,7 +70,6 @@ public class Puzzle5Controler : MonoBehaviour
             {
                 tempo = 0.375f;
                 animator.Play("DNACanvas", 0, 0.375f);
-                Debug.Log(tempo);
                 velocidadeAnimacao = 1f;
                 etapaAtual++;
             }
@@ -82,7 +79,6 @@ public class Puzzle5Controler : MonoBehaviour
                 velocidadeAnimacao = 1f;
                 tempo = 0.75f;
                 animator.Play("DNACanvas", 0, 0.75f);
-                Debug.Log(tempo);
             }
         }
     }
