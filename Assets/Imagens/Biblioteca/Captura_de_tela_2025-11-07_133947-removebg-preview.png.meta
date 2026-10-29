@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: ea90d079029f70f43a82b64bc10880c0
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5362295983498261345
+    second: Captura_de_tela_2025-11-07_133947-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,7 +111,29 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Captura_de_tela_2025-11-07_133947-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 987
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c0513b63c4595b0800000000000000
+      internalID: -5362295983498261345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []

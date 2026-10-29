@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: a9ce0a14d2bbba243a3b8b85b2510ee8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 640818150496056905
+    second: Captura de tela 2025-10-07 130852-Photoroom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,7 +111,29 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Captura de tela 2025-10-07 130852-Photoroom_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 878
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 946b0f176b4a4e800800000000000000
+      internalID: 640818150496056905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []

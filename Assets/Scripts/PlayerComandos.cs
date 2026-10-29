@@ -127,6 +127,7 @@ public class PlayerComandos : MonoBehaviour
                 || hit.collider.CompareTag("Cofre")
                 || hit.collider.CompareTag("DNA")
                 || hit.collider.CompareTag("Biblioteca")
+                || hit.collider.CompareTag("InteracaoAnimada")
                 || (hit.collider.CompareTag("BonecoAnatomia") && (puzzleControler.GetComponent<PuzzleAnatomiaControler>().interagivel)))
                 && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
             {
@@ -138,6 +139,7 @@ public class PlayerComandos : MonoBehaviour
                 || hit.collider.CompareTag("Cofre")
                 || hit.collider.CompareTag("DNA")
                 || hit.collider.CompareTag("Biblioteca")
+                || hit.collider.CompareTag("InteracaoAnimada")
                 || hit.collider.CompareTag("BonecoAnatomia")) && comandoInspecionarUI.activeSelf) || menuAberto)
             {
                 comandoInspecionarUI.SetActive(false); // Desativa a UI de comando de inspecionar se não estiver sobre um slot de célula

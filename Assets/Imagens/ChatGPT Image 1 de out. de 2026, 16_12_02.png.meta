@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 0994f7e8f8a0a2940867bf0e13048368
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -438541672316214297
+    second: ChatGPT Image 1 de out. de 2026, 16_12_02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,7 +111,29 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ChatGPT Image 1 de out. de 2026, 16_12_02_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 941
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e3e26a2cacf9e9f0800000000000000
+      internalID: -438541672316214297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []

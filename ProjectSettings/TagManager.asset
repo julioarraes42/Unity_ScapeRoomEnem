@@ -19,6 +19,7 @@ TagManager:
   - Biblioteca
   - BonecoAnatomia
   - DNA
+  - Interagivel
   layers:
   - Default
   - TransparentFX

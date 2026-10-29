@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 3d18faa3883447b4f9160184fbe8aa12
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3431757695255723317
+    second: Captura de tela 2025-10-07 134911_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,7 +111,29 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Captura de tela 2025-10-07 134911_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 608
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc2c113fe82ff50d0800000000000000
+      internalID: -3431757695255723317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
