@@ -95,7 +95,14 @@ public class PlayerComandos : MonoBehaviour
             {
                 if(hit.collider.GetComponent<SlotCelula>().dicaBanner != null)
                 {
-                    hit.collider.GetComponent<SlotCelula>().dicaBanner.SetActive(true); // Ativa o banner de dica se existir
+                    if (hit.collider.GetComponent<SlotCelula>().dicaBanner.activeSelf == false)
+                    {
+                        for (int i = 0; i < leitorSenhaControlador.GetComponent<DicaCelua>().banners.Length; i++)
+                        {
+                            leitorSenhaControlador.GetComponent<DicaCelua>().banners[i].SetActive(false); // Desativa todos os banners de dica
+                        }
+                        hit.collider.GetComponent<SlotCelula>().dicaBanner.SetActive(true); // Ativa o banner de dica se existir
+                    } 
                 }
             }
             else
@@ -120,6 +127,7 @@ public class PlayerComandos : MonoBehaviour
                 || hit.collider.CompareTag("Cofre")
                 || hit.collider.CompareTag("DNA")
                 || hit.collider.CompareTag("Biblioteca")
+                || hit.collider.CompareTag("InteracaoAnimada")
                 || (hit.collider.CompareTag("BonecoAnatomia") && (puzzleControler.GetComponent<PuzzleAnatomiaControler>().interagivel)))
                 && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
             {
@@ -131,6 +139,7 @@ public class PlayerComandos : MonoBehaviour
                 || hit.collider.CompareTag("Cofre")
                 || hit.collider.CompareTag("DNA")
                 || hit.collider.CompareTag("Biblioteca")
+                || hit.collider.CompareTag("InteracaoAnimada")
                 || hit.collider.CompareTag("BonecoAnatomia")) && comandoInspecionarUI.activeSelf) || menuAberto)
             {
                 comandoInspecionarUI.SetActive(false); // Desativa a UI de comando de inspecionar se não estiver sobre um slot de célula
@@ -210,7 +219,7 @@ public class PlayerComandos : MonoBehaviour
                 else if (hit.collider.CompareTag("DNA") && !puzzleControler.GetComponent<Puzzle5Controler>().ativo)
                 {
                     audioInpecionar.Play(); // Toca o som de inspecionar
-                    puzzleControler.GetComponent<Puzzle5Controler>().ativar();
+                    //puzzleControler.GetComponent<Puzzle5Controler>().ativar();
                 }
                 else if(bibliotecaControler.GetComponent<BibliotecaControler>().bibliotecaaberta)
                 {
