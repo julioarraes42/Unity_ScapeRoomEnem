@@ -128,6 +128,7 @@ public class PlayerComandos : MonoBehaviour
                 || hit.collider.CompareTag("DNA")
                 || hit.collider.CompareTag("Biblioteca")
                 || hit.collider.CompareTag("InteracaoAnimada")
+                || hit.collider.CompareTag("Microscopio")
                 || (hit.collider.CompareTag("BonecoAnatomia") && (puzzleControler.GetComponent<PuzzleAnatomiaControler>().interagivel)))
                 && !comandoInspecionarUI.activeSelf && !inventarioAberto && !menuAberto)
             {
@@ -140,6 +141,7 @@ public class PlayerComandos : MonoBehaviour
                 || hit.collider.CompareTag("DNA")
                 || hit.collider.CompareTag("Biblioteca")
                 || hit.collider.CompareTag("InteracaoAnimada")
+                || hit.collider.CompareTag("Microscopio")
                 || hit.collider.CompareTag("BonecoAnatomia")) && comandoInspecionarUI.activeSelf) || menuAberto)
             {
                 comandoInspecionarUI.SetActive(false); // Desativa a UI de comando de inspecionar se não estiver sobre um slot de célula
@@ -233,6 +235,10 @@ public class PlayerComandos : MonoBehaviour
                 else if (hit.collider.CompareTag("BonecoAnatomia") && (puzzleControler.GetComponent<PuzzleAnatomiaControler>().interagivel))
                 {
                     puzzleControler.GetComponent<PuzzleAnatomiaControler>().Interacao();
+                }
+                else if (hit.collider.CompareTag("Microscopio"))
+                {
+                    hit.collider.GetComponent<Microscopio>().AbrirTela(); // Abre a tela do microscópio
                 }
             }
         }
