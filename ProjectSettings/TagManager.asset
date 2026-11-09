@@ -21,6 +21,7 @@ TagManager:
   - DNA
   - Interagivel
   - Microscopio
+  - Banner
   layers:
   - Default
   - TransparentFX

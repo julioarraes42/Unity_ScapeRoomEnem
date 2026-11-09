@@ -10,6 +10,7 @@ public class Microscopio : MonoBehaviour
     public void AbrirTela()
     {
         telaAberta = true;
+        Cursor.lockState = CursorLockMode.None;
         tela.SetActive(true);
         iconeSair.SetActive(true);
         playerComandos.inventarioAberto = true;

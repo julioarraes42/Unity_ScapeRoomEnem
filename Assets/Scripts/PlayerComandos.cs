@@ -43,6 +43,8 @@ public class PlayerComandos : MonoBehaviour
     public GameObject bibliotecaControler; // Controlador da biblioteca
     public GameObject puzzleControler;
 
+    private GameObject hitObject; // Referência ao objeto atingido pelo raycast
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela
@@ -76,7 +78,7 @@ public class PlayerComandos : MonoBehaviour
 
         // Aparecer elementos da UI ao passar a mira em cima
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, 6f))
         {
             if (hit.collider.CompareTag("Item") && !comandoPegarUI.activeSelf && !inventarioAberto)
             {
@@ -119,7 +121,7 @@ public class PlayerComandos : MonoBehaviour
             painelTextoNome.SetActive(false);
         }
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, 6f))
         {
             if ((hit.collider.CompareTag("Computador")
                 || hit.collider.CompareTag("Cadeado")
@@ -154,13 +156,21 @@ public class PlayerComandos : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.CompareTag("SlotCelula") && !inventarioAberto)
-            {
 
+            if (hit.collider.CompareTag("Banner"))
+            {
+                hitObject = hit.collider.gameObject; // Armazena o objeto atingido pelo raycast
+                hitObject.GetComponent<Banner>().AtivarBanner(); // Ativa o banner se estiver sobre ele
+                comandoInspecionarUI.SetActive(true);
             }
-            else if (!hit.collider.CompareTag("SlotCelula") && comandoPegarUI.activeSelf)
+            else
             {
-
+                if(hitObject != null)
+                {
+                    hitObject.GetComponent<Banner>().DesativarBanner(); // Desativa o banner se não estiver mais sobre ele
+                    hitObject = null; // Limpa a referência ao objeto atingido
+                    comandoInspecionarUI.SetActive(false);
+                }
             }
         }
 
@@ -173,7 +183,7 @@ public class PlayerComandos : MonoBehaviour
                 leitorSenhaControlador.GetComponent<LeitorSenhaControler>().Desativar();
             }
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, 6f))
             {
                 if (hit.collider.CompareTag("Item"))
                 {
@@ -239,6 +249,14 @@ public class PlayerComandos : MonoBehaviour
                 else if (hit.collider.CompareTag("Microscopio"))
                 {
                     hit.collider.GetComponent<Microscopio>().AbrirTela(); // Abre a tela do microscópio
+                }
+            }
+
+            if(Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Banner"))
+                {
+                    hit.collider.GetComponent<Banner>().AbrirTela(); // Abre a tela do banner
                 }
             }
         }
