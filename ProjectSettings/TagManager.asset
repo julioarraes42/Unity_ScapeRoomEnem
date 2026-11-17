@@ -22,6 +22,7 @@ TagManager:
   - Interagivel
   - Microscopio
   - Banner
+  - ThermalCycler
   layers:
   - Default
   - TransparentFX

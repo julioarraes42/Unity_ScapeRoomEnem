@@ -231,7 +231,7 @@ public class PlayerComandos : MonoBehaviour
                 else if (hit.collider.CompareTag("DNA") && !puzzleControler.GetComponent<Puzzle5Controler>().ativo)
                 {
                     audioInpecionar.Play(); // Toca o som de inspecionar
-                    //puzzleControler.GetComponent<Puzzle5Controler>().ativar();
+                    hit.collider.GetComponent<ClonarDNA>().AtivarTela();
                 }
                 else if(bibliotecaControler.GetComponent<BibliotecaControler>().bibliotecaaberta)
                 {
