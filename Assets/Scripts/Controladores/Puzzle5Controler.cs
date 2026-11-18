@@ -5,12 +5,26 @@ using UnityEngine.UI;
 
 public class Puzzle5Controler : MonoBehaviour
 {
-    [SerializeField] private GameObject tela;
-    [SerializeField] private GameObject[] IconesDesativados;
-    [SerializeField] private GameObject[] IconesAtivados;
-    [SerializeField] private PlayerComandos playerComandos;
-
     [SerializeField] private float velocidadeAnimacao = 0f;
+    
+    public Button[] botoes;
+
+    public string[] opcoes = {
+        "Desnaturação",
+        "Anelamento",
+        "Extensão",
+        "Replicação",
+        "Transcrição",
+        "Tradução",
+        "Hibridização",
+        "Eletroforese",
+        "Centrifugação",
+        "Purificação",
+        "Ligação",
+        "Clonagem"
+    };
+
+    public int[] sorteio = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 
     public Animator animator;
 
@@ -23,10 +37,13 @@ public class Puzzle5Controler : MonoBehaviour
     {
         animator.Play("DNACanvas", 0, 0f);
         velocidadeAnimacao = 0f;
+
+        Embaralhar();
     }
 
     private void Update()
     {
+
         animator.speed = velocidadeAnimacao;
 
         AnimatorStateInfo estado = animator.GetCurrentAnimatorStateInfo(0);
@@ -80,6 +97,40 @@ public class Puzzle5Controler : MonoBehaviour
                 tempo = 0.75f;
                 animator.Play("DNACanvas", 0, 0.75f);
             }
+        }
+        else
+        {
+            etapaAtual = 0;
+            velocidadeAnimacao = 0f;
+            tempo = 0.0f;
+            animator.Play("DNACanvas", 0, 0.0f);
+
+            Embaralhar();
+        }
+    }
+
+    public void Embaralhar()
+    {
+
+        for (int i = 0; i < sorteio.Length; i++)
+        {
+            int indiceAleatorio = Random.Range(i, sorteio.Length);
+
+            int temp = sorteio[i];
+            sorteio[i] = sorteio[indiceAleatorio];
+            sorteio[indiceAleatorio] = temp;
+        }
+
+        for (int i = 0; i < botoes.Length; i++)
+        {
+            int indice = i;
+
+            botoes[sorteio[i]].onClick.RemoveAllListeners();
+
+            botoes[sorteio[i]].onClick.AddListener(() => botao(indice));
+            botoes[sorteio[i]].GetComponentInChildren<TMP_Text>().text = opcoes[i];
+
+            botoes[sorteio[i]].GetComponent<Image>().color = Random.ColorHSV(0f, 1f, 0.9f, 1f, 0.5f, 1f);
         }
     }
 }
